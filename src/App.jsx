@@ -5,6 +5,7 @@ import {
   Smartphone, Target, CreditCard, Menu, ChevronDown, Star, Calculator, MonitorSmartphone
 } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
+import MobileIntro from './components/MobileIntro';
 import Logo from './components/Logo';
 import CMAssistant from './components/CMAssistant';
 import { STRINGS } from './i18n';
@@ -466,6 +467,7 @@ export default function PortfolioApp() {
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 font-sans selection:bg-blue-500 selection:text-white">
+      <MobileIntro />
       <a href="#contacto" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-blue-600 focus:text-white">
         {t.nav.cta}
       </a>
