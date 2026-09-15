@@ -165,12 +165,12 @@ function LabSection({ t }) {
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  const respW = resp === 'mobile' ? '180px' : resp === 'tablet' ? '340px' : '100%';
+  const respW = resp === 'mobile' ? '45%' : resp === 'tablet' ? '75%' : '100%';
   const respLabel = resp === 'mobile' ? t.responsive.mobile : resp === 'tablet' ? t.responsive.tablet : t.responsive.desktop;
   return (
     <div className="max-w-6xl mx-auto space-y-6">
       {/* 01 · Velocidad */}
-      <div ref={raceRef} className="p-8 md:p-10 rounded-3xl bg-slate-900/40 border border-slate-800">
+      <div ref={raceRef} className="p-5 sm:p-8 md:p-10 rounded-3xl bg-slate-900/40 border border-slate-800">
         <div className="flex items-start gap-5">
           <div className="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-900/40">
             <Zap className="w-6 h-6 text-white" />
@@ -200,7 +200,7 @@ function LabSection({ t }) {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* 02 · Responsive */}
-        <div className="p-8 rounded-3xl bg-slate-900/40 border border-slate-800 space-y-5">
+        <div className="min-w-0 p-5 sm:p-8 rounded-3xl bg-slate-900/40 border border-slate-800 space-y-5">
           <div className="flex items-start gap-4">
             <div className="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-900/40">
               <MonitorSmartphone className="w-6 h-6 text-white" />
@@ -228,7 +228,7 @@ function LabSection({ t }) {
               <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
               <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
               <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
-              <span className="ml-2 text-[11px] text-slate-500">tu-sitio.com · {respLabel}</span>
+              <span className="ml-2 text-[11px] text-slate-500 truncate">tu-sitio.com · {respLabel}</span>
             </div>
             <div className="h-[210px] flex items-start justify-center p-4 overflow-hidden">
               <div className="transition-all duration-500 rounded-lg bg-slate-900 border border-slate-700 p-3 space-y-2 overflow-hidden" style={{ width: respW, maxWidth: '100%' }}>
@@ -245,7 +245,7 @@ function LabSection({ t }) {
           <p className="text-xs text-slate-500 leading-relaxed">{t.responsive.note}</p>
         </div>
         {/* 03 · Movimiento */}
-        <div className="p-8 rounded-3xl bg-slate-900/40 border border-slate-800 space-y-5">
+        <div className="min-w-0 p-5 sm:p-8 rounded-3xl bg-slate-900/40 border border-slate-800 space-y-5">
           <div className="flex items-start gap-4">
             <div className="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-900/40">
               <Sparkles className="w-6 h-6 text-white" />
@@ -821,9 +821,9 @@ export default function PortfolioApp() {
             </div>
             <button
               onClick={handleQuotePDF}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2 whitespace-nowrap"
+              className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-sm sm:text-base text-center leading-snug transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2"
             >
-              <MessageSquare className="w-5 h-5" /> {t.quote.cta}
+              <MessageSquare className="w-5 h-5 shrink-0" /> <span>{t.quote.cta}</span>
             </button>
           </div>
           <p className="text-[11px] text-slate-500 text-center">{t.quote.pdfNote}</p>
@@ -992,9 +992,9 @@ export default function PortfolioApp() {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2"
+              className="w-full py-4 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-bold text-white text-center leading-snug transition-all shadow-xl shadow-emerald-600/20 flex items-center justify-center gap-2"
             >
-              <MessageSquare className="w-5 h-5" /> {t.contact.submit}
+              <MessageSquare className="w-5 h-5 shrink-0" /> <span>{t.contact.submit}</span>
             </button>
           </form>
         </section>
