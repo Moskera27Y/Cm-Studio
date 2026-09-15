@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send } from 'lucide-react';
+import { track } from '@vercel/analytics';
 import Logo from './Logo';
 import { STRINGS } from '../i18n';
 
@@ -142,7 +143,7 @@ export default function CMAssistant({ lang }) {
       )}
 
       <button
-        onClick={() => { setOpen((o) => !o); setSeen(true); }}
+        onClick={() => { setOpen((o) => !o); setSeen(true); if (!open) track('chat_open'); }}
         aria-label={open ? t.close : t.open}
         className="fixed bottom-5 right-4 md:right-6 z-[90] w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/40 flex items-center justify-center transition-all hover:scale-105"
       >

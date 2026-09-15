@@ -9,6 +9,7 @@ import MobileIntro from './components/MobileIntro';
 import Logo from './components/Logo';
 import CMAssistant from './components/CMAssistant';
 import { STRINGS } from './i18n';
+import { track } from '@vercel/analytics';
 
 const ICONS = {
   globe: Globe,
@@ -342,6 +343,7 @@ export default function PortfolioApp() {
       `${w.details}: ${formData.details}`,
     ];
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    track('contact_submit', { type: formData.projectType });
   };
 
   const filteredProjects = selectedCategory === 'all'
@@ -406,6 +408,19 @@ export default function PortfolioApp() {
       ...qExtras.map((i) => `+ ${t.quote.extrasList[i].label} ($${t.quote.extrasList[i].price} USD)`),
       `${t.quote.estimated}: $${min} - $${max} USD`,
     ];
+    // Guardar lead en DB (no bloquea: si falla, igual se abre WhatsApp)
+    fetch('/api/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        lang,
+        type: t.contact.types[qType],
+        extras: qExtras.map((i) => t.quote.extrasList[i].label),
+        min,
+        max,
+      }),
+    }).catch(() => {});
+    track('quote_generated', { type: t.contact.types[qType], total: min });
     window.open(`https://wa.me/573027472998?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
   };
 
@@ -766,6 +781,7 @@ export default function PortfolioApp() {
                 <a
                   href={`https://wa.me/573027472998?text=${encodeURIComponent(`${t.quote.waGreet} ${plan.name} (${plan.price} USD)`)}`}
                   target="_blank" rel="noreferrer"
+                  onClick={() => track('plan_click', { plan: plan.name })}
                   className="mt-6 w-full py-3 rounded-xl bg-slate-800 hover:bg-blue-600 border border-slate-700 font-semibold text-sm text-center transition-all"
                 >
                   {t.pricing.cta}
