@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     if (clean.length === 0) return res.status(400).json({ error: 'EMPTY' });
 
     const base = (process.env.AI_API_URL || 'https://openrouter.ai/api/v1').replace(/\/$/, '');
-    const model = process.env.AI_MODEL || 'meta-llama/llama-3.3-70b-instruct:free';
+    const model = process.env.AI_MODEL || 'google/gemma-4-26b-a4b-it:free';
 
     const r = await fetch(`${base}/chat/completions`, {
       method: 'POST',
