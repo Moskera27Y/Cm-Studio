@@ -99,7 +99,7 @@ export default async function handler(req, res) {
       console.error('chat upstream all-failed, lastStatus', lastStatus);
       return res.status(502).json({ error: 'AI_UPSTREAM' });
     }
-    return res.status(200).json({ reply: reply.slice(0, 1200) });
+    return res.status(200).json({ reply: reply.replace(/\*\*/g, '').slice(0, 1200) });
   } catch (err) {
     console.error('chat error', err);
     return res.status(500).json({ error: 'AI_ERROR' });
