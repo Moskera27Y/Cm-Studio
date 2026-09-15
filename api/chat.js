@@ -50,34 +50,55 @@ export default async function handler(req, res) {
     if (clean.length === 0) return res.status(400).json({ error: 'EMPTY' });
 
     const base = (process.env.AI_API_URL || 'https://openrouter.ai/api/v1').replace(/\/$/, '');
-    const model = process.env.AI_MODEL || 'google/gemma-4-26b-a4b-it:free';
+    // Cadena de modelos: el preferido primero, respaldos si el free está saturado.
+    const preferred = process.env.AI_MODEL || 'google/gemma-4-26b-a4b-it:free';
+    const models = [preferred, ...[
+      'google/gemma-4-26b-a4b-it:free',
+      'nvidia/nemotron-3-ultra-550b-a55b:free',
+      'cohere/north-mini-code:free',
+    ].filter((m) => m !== preferred)];
 
-    const r = await fetch(`${base}/chat/completions`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-        'HTTP-Referer': 'https://cm-portfolio-cristians-projects-5a37e367.vercel.app',
-        'X-Title': 'CM Studio Assistant',
-      },
-      body: JSON.stringify({
-        model,
-        messages: [
-          { role: 'system', content: SYSTEM + (lang === 'en' ? ' Answer in English.' : ' Responde en español.') },
-          ...clean,
-        ],
-        max_tokens: 400,
-        temperature: 0.7,
-      }),
+    const payload = (model) => ({
+      model,
+      messages: [
+        { role: 'system', content: SYSTEM + (lang === 'en' ? ' Answer in English.' : ' Responde en español.') },
+        ...clean,
+      ],
+      max_tokens: 400,
+      temperature: 0.7,
     });
-    if (!r.ok) {
-      const detail = await r.text().catch(() => '');
-      console.error('chat upstream', r.status, detail.slice(0, 300));
+
+    let reply = '';
+    let lastStatus = 0;
+    for (const model of models) {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 12000);
+      try {
+        const r = await fetch(`${base}/chat/completions`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${apiKey}`,
+            'HTTP-Referer': 'https://cm-portfolio-cristians-projects-5a37e367.vercel.app',
+            'X-Title': 'CM Studio Assistant',
+          },
+          body: JSON.stringify(payload(model)),
+          signal: ctrl.signal,
+        });
+        clearTimeout(to);
+        if (!r.ok) { lastStatus = r.status; continue; }
+        const data = await r.json();
+        reply = data?.choices?.[0]?.message?.content?.trim() || '';
+        if (reply) break;
+      } catch (e) {
+        clearTimeout(to);
+        console.error('chat try', model, e?.message || e);
+      }
+    }
+    if (!reply) {
+      console.error('chat upstream all-failed, lastStatus', lastStatus);
       return res.status(502).json({ error: 'AI_UPSTREAM' });
     }
-    const data = await r.json();
-    const reply = data?.choices?.[0]?.message?.content?.trim();
-    if (!reply) return res.status(502).json({ error: 'AI_EMPTY' });
     return res.status(200).json({ reply: reply.slice(0, 1200) });
   } catch (err) {
     console.error('chat error', err);
