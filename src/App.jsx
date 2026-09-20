@@ -367,7 +367,7 @@ export default function PortfolioApp() {
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(20);
-    doc.text('CM STUDIO', 15, 17);
+    doc.text('CM DEV STUDIO', 15, 17);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(11);
     doc.text(`${t.quote.pdfTitle} — ${new Date().toLocaleDateString(lang === 'es' ? 'es-CO' : 'en-US')}`, 15, 28);
@@ -395,9 +395,9 @@ export default function PortfolioApp() {
     doc.setTextColor(110, 110, 110);
     doc.text(t.quote.pdfValid, 15, y);
     y += 7;
-    doc.text('CM Studio · https://wa.me/573027472998', 15, y);
+    doc.text('CM Dev Studio · https://wa.me/573027472998', 15, y);
     try {
-      doc.save('cotizacion-cm-studio.pdf');
+      doc.save('cotizacion-cm-dev-studio.pdf');
     } catch {
       // Si el navegador bloquea la descarga, igual se abre WhatsApp con el resumen
     }
@@ -495,7 +495,7 @@ export default function PortfolioApp() {
           <div className="flex items-center gap-3">
             <Logo className="w-10 h-10 drop-shadow-lg" />
             <span className="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-              CM Studio
+              CM Dev Studio
             </span>
           </div>
 
@@ -1024,7 +1024,7 @@ export default function PortfolioApp() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Logo className="w-9 h-9" />
-              <span className="font-bold text-lg tracking-tight">CM Studio</span>
+              <span className="font-bold text-lg tracking-tight">CM Dev Studio</span>
             </div>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">{t.footer.tag}</p>
           </div>
@@ -1056,7 +1056,7 @@ export default function PortfolioApp() {
         </div>
         <div className="border-t border-slate-800/60">
           <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
-            <span>© {new Date().getFullYear()} CM Studio. {t.footer.rights}</span>
+            <span>© {new Date().getFullYear()} CM Dev Studio. {t.footer.rights}</span>
             <span className="inline-flex items-center gap-1.5"><Star className="w-3.5 h-3.5 text-amber-400" /> React · Tailwind · Vercel</span>
           </div>
         </div>

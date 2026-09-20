@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function Logo({ className = 'w-10 h-10' }) {
   return (
-    <svg viewBox="0 0 512 512" className={className} role="img" aria-label="CM Studio">
-      <title>CM Studio</title>
+    <svg viewBox="0 0 512 512" className={className} role="img" aria-label="CM Dev Studio">
+      <title>CM Dev Studio</title>
       <defs>
         <linearGradient id="cm-logo-bg" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#2563eb" />

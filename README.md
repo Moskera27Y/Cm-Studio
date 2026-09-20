@@ -1,6 +1,6 @@
-# CM Studio — Portafolio
+# CM Dev Studio — Portafolio
 
-Portafolio bilingüe (ES/EN) de **CM Studio**, estudio de desarrollo web elite y aplicaciones SaaS. Construido con React + Vite + Tailwind CSS v4, desplegado en Vercel.
+Portafolio bilingüe (ES/EN) de **CM Dev Studio**, estudio de desarrollo web elite y aplicaciones SaaS. Construido con React + Vite + Tailwind CSS v4, desplegado en Vercel.
 
 ## Secciones
 
