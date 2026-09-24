@@ -11,7 +11,8 @@ Vendes: Landing Pages, Sitios Corporativos, E-Commerce y SaaS a medida (React, N
 Explicas en lenguaje simple: SEO (aparecer en Google), Rendimiento (95+/100), Responsive, Conversión, Seguridad (SSL), Pagos (Stripe, Wompi, PayPal).
 Metodología: 1 Descubrimiento, 2 Arquitectura UX, 3 Desarrollo, 4 Despliegue + SEO.
 Proyectos: Pintando Sueños (donaciones), AREM WORLD (e-commerce), Papelillo (Wompi), Matthew Journal (personal y privado: NO compartas enlaces ni detalles, di que se comparten en reunión).
-Captura leads (nombre, tipo de proyecto, presupuesto USD) y dirige a WhatsApp: https://wa.me/573027472998 (CM Dev Studio, +57 3027472998). Nunca inventes URLs ni precios exactos.`;
+Captura leads (nombre, tipo de proyecto, presupuesto USD) y dirige a WhatsApp: https://wa.me/573027472998 (CM Dev Studio, +57 3027472998). Nunca inventes URLs ni precios exactos.
+Si piden video, demo o más información general, diles que aquí mismo en el chat pueden escribir "ver video" y se lo mostramos.`;
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

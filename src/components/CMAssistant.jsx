@@ -5,6 +5,10 @@ import Logo from './Logo';
 import { STRINGS } from '../i18n';
 
 const WA_LINK = 'https://wa.me/573027472998';
+// Video mobile (22s, vertical con voz): solo se sirve bajo demanda desde el chat,
+// nunca se incrusta en la página para no pesar la carga inicial.
+const VIDEO_SRC = '/video-cm-mobile.mp4';
+const VIDEO_POSTER = '/video-cm-mobile.jpg';
 
 function detectIntent(text) {
   const s = text.toLowerCase();
@@ -13,6 +17,7 @@ function detectIntent(text) {
   if (has('servicio', 'seo', 'pago', 'diseño', 'diseno', 'velocidad', 'responsive', 'service', 'payment', 'design', 'speed')) return 'services';
   if (has('proyecto', 'trabajo', 'ejemplo', 'project', 'work', 'portfolio', 'client')) return 'projects';
   if (has('contacto', 'whatsapp', 'agendar', 'llamada', 'llamar', 'reunion', 'reunión', 'contact', 'call', 'meeting', 'book', 'hablar')) return 'contact';
+  if (has('video', 'demo', 'muestra', 'presentaci', 'mira el', 'watch', 'show me', 'mas info', 'más info', 'mas informacion', 'más información', 'mayor informacion', 'mayor información', 'mas detalles', 'más detalles', 'cuentame', 'cuéntame', 'hablame', 'háblame', 'explicame', 'explícame')) return 'video';
   if (has('hola', 'buenas', 'hello', 'hey')) return 'greet';
   return 'fallback';
 }
@@ -37,7 +42,11 @@ export default function CMAssistant({ lang }) {
   const replyLocal = (intent) => {
     setTyping(true);
     timer.current = setTimeout(() => {
-      setMessages((m) => [...m, { from: 'bot', text: intent === 'greet' ? t.greet : t.answers[intent] }]);
+      if (intent === 'video') {
+        setMessages((m) => [...m, { from: 'bot', text: t.videoReply, video: VIDEO_SRC, poster: VIDEO_POSTER }]);
+      } else {
+        setMessages((m) => [...m, { from: 'bot', text: intent === 'greet' ? t.greet : t.answers[intent] }]);
+      }
       setTyping(false);
     }, 900);
   };
@@ -71,6 +80,12 @@ export default function CMAssistant({ lang }) {
     const next = [...messages, { from: 'user', text: clean }];
     setMessages(next);
     setInput('');
+    // El video se entrega siempre en local (sin backend): es contenido propio fijo.
+    if (detectIntent(clean) === 'video') {
+      safeTrack('chat_video');
+      replyLocal('video');
+      return;
+    }
     setTyping(true);
     replyBackend(next).then((answer) => {
       clearTimeout(timer.current);
@@ -104,6 +119,17 @@ export default function CMAssistant({ lang }) {
             {messages.map((m, i) => (
               <div key={i} className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${m.from === 'bot' ? 'bg-slate-800 text-slate-200 rounded-tl-sm' : 'bg-blue-600 text-white ml-auto rounded-tr-sm'}`}>
                 {m.text}
+                {m.video && (
+                  <video
+                    src={m.video}
+                    poster={m.poster}
+                    controls
+                    playsInline
+                    preload="none"
+                    aria-label={lang === 'es' ? 'Video promocional de CM Dev Studio' : 'CM Dev Studio promo video'}
+                    className="mt-2 w-full rounded-xl bg-black"
+                  />
+                )}
               </div>
             ))}
             {typing && (
