@@ -11,7 +11,7 @@ Portafolio bilingüe (ES/EN) de **CM Dev Studio**, estudio de desarrollo web eli
 - Proyectos con caso de estudio + vista previa en vivo (Pintando Sueños, AREM WORLD, Papelillo, Matthew Journal — privado)
 - Precios transparentes en USD
 - Cotizador interactivo → WhatsApp
-- FAQ, formulario → WhatsApp (+57 318 517 1163), footer
+- FAQ, formulario → WhatsApp (+57 302 747 2998), footer
 - Chatbot flotante **CM Assistant** (`POST /api/chat`, OpenAI-compatible; fallback local sin key)
 
 ## Desarrollo

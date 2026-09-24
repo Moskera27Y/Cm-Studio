@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import {
   Code2, Sparkles, Rocket, CheckCircle2, ArrowRight,
   ShieldCheck, Zap, Globe, Check, MessageSquare, X,
-  Smartphone, Target, CreditCard, Menu, ChevronDown, Star, Calculator, MonitorSmartphone
+  Smartphone, Target, CreditCard, Menu, ChevronDown, Calculator, MonitorSmartphone
 } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
 import MobileIntro from './components/MobileIntro';
 import Logo from './components/Logo';
 import CMAssistant from './components/CMAssistant';
 import { STRINGS } from './i18n';
-import { track } from '@vercel/analytics';
+import { safeTrack } from './analytics';
+import CookieBanner from './components/CookieBanner';
+import LegalDialog from './components/LegalDialog';
 
 const ICONS = {
   globe: Globe,
@@ -320,7 +322,7 @@ export default function PortfolioApp() {
   const t = STRINGS[lang];
   const projects = PROJECTS_BASE.map((p) => ({ ...p, ...t.projectsData[p.id] }));
 
-  // Estado del Formulario
+  // Estado del Formulario (solo datos necesarios; nada se guarda aquí, se envía por WhatsApp)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -328,9 +330,16 @@ export default function PortfolioApp() {
     budget: '$300 - $600 USD',
     details: ''
   });
+  const [privacyOk, setPrivacyOk] = useState(false);
+  const [formError, setFormError] = useState('');
 
   const handleWhatsAppSend = (e) => {
     e.preventDefault();
+    if (!privacyOk) {
+      setFormError(t.consent.required);
+      return;
+    }
+    setFormError('');
     const phone = "573027472998";
     const w = t.contact.wa;
     const lines = [
@@ -343,7 +352,7 @@ export default function PortfolioApp() {
       `${w.details}: ${formData.details}`,
     ];
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
-    track('contact_submit', { type: formData.projectType });
+    safeTrack('contact_submit', { type: formData.projectType });
   };
 
   const filteredProjects = selectedCategory === 'all'
@@ -420,7 +429,7 @@ export default function PortfolioApp() {
         max,
       }),
     }).catch(() => {});
-    track('quote_generated', { type: t.contact.types[qType], total: min });
+    safeTrack('quote_generated', { type: t.contact.types[qType], total: min });
     window.open(`https://wa.me/573027472998?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
   };
 
@@ -531,7 +540,9 @@ export default function PortfolioApp() {
             <button
               className="md:hidden p-2.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300"
               onClick={() => setMenuOpen((v) => !v)}
+              onKeyDown={(e) => { if (e.key === 'Escape') setMenuOpen(false); }}
               aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
               aria-label={menuOpen ? t.modal.close : 'Menu'}
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -540,7 +551,7 @@ export default function PortfolioApp() {
         </div>
         {/* Panel móvil */}
         {menuOpen && (
-          <nav className="md:hidden border-t border-slate-800 bg-[#07090e]/95 backdrop-blur-md px-6 py-4 flex flex-col gap-1 text-sm font-medium" aria-label="Móvil">
+          <nav id="mobile-menu" className="md:hidden border-t border-slate-800 bg-[#07090e]/95 backdrop-blur-md px-6 py-4 flex flex-col gap-1 text-sm font-medium" aria-label="Móvil">
             {[
               ['#filosofia', t.nav.about], ['#metodo', t.nav.method], ['#servicios', t.nav.services],
               ['#proyectos', t.nav.projects], ['#precios', t.nav.pricing], ['#faq', t.nav.faq],
@@ -615,11 +626,12 @@ export default function PortfolioApp() {
           <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {t.about.stats.map((s, i) => (
               <div key={i} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 text-center hover:border-blue-500/50 transition-all">
-                <dt className="order-2 text-xs text-slate-500 mt-1">{s.label}</dt>
+                <dt className="order-2 text-xs text-slate-400 mt-1">{s.label}</dt>
                 <dd className="order-1 text-3xl font-black bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"><Stat key={`${lang}-${s.label}`} value={s.value} /></dd>
               </div>
             ))}
           </dl>
+          <p className="text-center text-[11px] text-slate-500">{t.disclaimers.metrics}</p>
         </section>
 
         {/* Metodología */}
@@ -781,7 +793,7 @@ export default function PortfolioApp() {
                 <a
                   href={`https://wa.me/573027472998?text=${encodeURIComponent(`${t.quote.waGreet} ${plan.name} (${plan.price} USD)`)}`}
                   target="_blank" rel="noreferrer"
-                  onClick={() => track('plan_click', { plan: plan.name })}
+                  onClick={() => safeTrack('plan_click', { plan: plan.name })}
                   className="mt-6 w-full py-3 rounded-xl bg-slate-800 hover:bg-blue-600 border border-slate-700 font-semibold text-sm text-center transition-all"
                 >
                   {t.pricing.cta}
@@ -944,6 +956,8 @@ export default function PortfolioApp() {
                   id="f-name"
                   type="text"
                   required
+                  minLength={2}
+                  maxLength={80}
                   autoComplete="name"
                   placeholder={t.contact.namePh}
                   value={formData.name}
@@ -957,6 +971,7 @@ export default function PortfolioApp() {
                   id="f-email"
                   type="email"
                   required
+                  maxLength={120}
                   autoComplete="email"
                   placeholder="correo@empresa.com"
                   value={formData.email}
@@ -1001,11 +1016,37 @@ export default function PortfolioApp() {
               <textarea
                 id="f-details"
                 rows="3"
+                maxLength={800}
                 placeholder={t.contact.detailsPh}
                 value={formData.details}
                 onChange={(e) => setFormData({...formData, details: e.target.value})}
                 className="w-full mt-1.5 px-4 py-3 rounded-xl bg-slate-800/60 border border-slate-700 text-white focus:outline-none focus:border-blue-500 text-sm"
               />
+            </div>
+
+            <div className="rounded-xl border border-slate-700 bg-slate-900/60 px-4 py-3">
+              <label htmlFor="f-privacy" className="flex items-start gap-3 text-xs text-slate-300 leading-relaxed cursor-pointer">
+                <input
+                  id="f-privacy"
+                  type="checkbox"
+                  required
+                  checked={privacyOk}
+                  onChange={(e) => setPrivacyOk(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-emerald-500"
+                />
+                <span>
+                  {t.consent.privacy}{' '}
+                  <button type="button" onClick={() => window.dispatchEvent(new CustomEvent('cm-open-legal', { detail: 'privacy' }))} className="underline underline-offset-4 hover:text-white">
+                    {t.footer.privacy}
+                  </button>
+                  {' · '}
+                  <button type="button" onClick={() => window.dispatchEvent(new CustomEvent('cm-open-legal', { detail: 'terms' }))} className="underline underline-offset-4 hover:text-white">
+                    {t.footer.terms}
+                  </button>
+                </span>
+              </label>
+              <p className="mt-2 text-[11px] text-slate-500 leading-relaxed">{t.consent.note}</p>
+              {formError && <p role="alert" className="mt-2 text-xs font-semibold text-red-400">{formError}</p>}
             </div>
 
             <button
@@ -1040,30 +1081,54 @@ export default function PortfolioApp() {
             </ul>
           </nav>
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">{t.footer.contact}</h3>
-            <ul className="space-y-2.5 text-sm text-slate-400">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{t.footer.contact}</h3>
+            <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
                 <a href="https://wa.me/573027472998" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-emerald-400 transition-colors">
                   <MessageSquare className="w-4 h-4" /> +57 302 747 2998
                 </a>
               </li>
               <li className="flex items-center gap-2"><Globe className="w-4 h-4" /> {t.footer.location}</li>
+              <li className="text-xs text-slate-400">{t.footer.business}</li>
             </ul>
+            <h3 className="mt-6 text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">{t.footer.legal}</h3>
+            <ul className="flex flex-wrap gap-2 text-xs">
+              {[
+                ['privacy', t.footer.privacy], ['terms', t.footer.terms],
+                ['cookies', t.footer.cookies], ['refunds', t.footer.refunds],
+              ].map(([doc, label]) => (
+                <li key={doc}>
+                  <button onClick={() => window.dispatchEvent(new CustomEvent('cm-open-legal', { detail: doc }))}
+                    className="px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-blue-500 transition-all">
+                    {label}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <button onClick={() => window.dispatchEvent(new Event('cm-open-cookies'))}
+                  className="px-3 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-white hover:border-blue-500 transition-all">
+                  {t.footer.cookieSettings}
+                </button>
+              </li>
+            </ul>
+            <p className="mt-4 text-[11px] text-slate-500 leading-relaxed max-w-xs">{t.footer.images}</p>
             <a href="#contacto" className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all">
               {t.nav.cta} <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
         <div className="border-t border-slate-800/60">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+          <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
             <span>© {new Date().getFullYear()} CM Dev Studio. {t.footer.rights}</span>
-            <span className="inline-flex items-center gap-1.5"><Star className="w-3.5 h-3.5 text-amber-400" /> React · Tailwind · Vercel</span>
+            <span className="inline-flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5 text-slate-500" /> React · Tailwind · Vercel</span>
           </div>
         </div>
       </footer>
 
       {/* Asistente virtual */}
       <CMAssistant key={lang} lang={lang} />
+      <CookieBanner lang={lang} strings={t.cookie} />
+      <LegalDialog lang={lang} />
 
       {/* Modal Caso de Estudio */}
       {selected && (
@@ -1168,18 +1233,19 @@ export default function PortfolioApp() {
 
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div className="rounded-xl bg-slate-900/60 border border-slate-800 py-3">
-                  <div className="text-xs text-slate-500">{t.modal.speed}</div>
+                  <div className="text-xs text-slate-400">{t.modal.speed}</div>
                   <div className="font-bold text-emerald-400">{selected.metrics.speed}</div>
                 </div>
                 <div className="rounded-xl bg-slate-900/60 border border-slate-800 py-3">
-                  <div className="text-xs text-slate-500">{t.modal.seo}</div>
+                  <div className="text-xs text-slate-400">{t.modal.seo}</div>
                   <div className="font-bold text-blue-400">{selected.metrics.SEO}</div>
                 </div>
                 <div className="rounded-xl bg-slate-900/60 border border-slate-800 py-3">
-                  <div className="text-xs text-slate-500">{t.modal.conversion}</div>
+                  <div className="text-xs text-slate-400">{t.modal.conversion}</div>
                   <div className="font-bold text-purple-400">{selected.metrics.conversion}</div>
                 </div>
               </div>
+              <p className="text-[11px] text-slate-500 leading-relaxed">{t.disclaimers.metrics}</p>
 
               <div className="flex flex-wrap gap-2">
                 {selected.stack.map((tech, idx) => (

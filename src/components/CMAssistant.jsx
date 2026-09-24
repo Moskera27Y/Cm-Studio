@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send } from 'lucide-react';
-import { track } from '@vercel/analytics';
+import { safeTrack } from '../analytics';
 import Logo from './Logo';
 import { STRINGS } from '../i18n';
 
@@ -129,12 +129,19 @@ export default function CMAssistant({ lang }) {
               onChange={(e) => setInput(e.target.value)}
               placeholder={t.placeholder}
               aria-label={t.placeholder}
+              maxLength={500}
+              autoComplete="off"
               className="flex-1 px-4 py-2.5 rounded-xl bg-slate-800/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-blue-500"
             />
-            <button type="submit" className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-all" aria-label="Send">
+            <button type="submit" className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white transition-all" aria-label={lang === 'es' ? 'Enviar mensaje' : 'Send message'}>
               <Send className="w-4 h-4" />
             </button>
           </form>
+          <p className="px-4 pb-1 text-[11px] text-slate-500 leading-relaxed">
+            {lang === 'es'
+              ? 'Al escribir aceptas nuestra Política de Privacidad. No compartas contraseñas ni datos sensibles.'
+              : 'By typing you accept our Privacy Policy. Do not share passwords or sensitive data.'}
+          </p>
 
           <a href={WA_LINK} target="_blank" rel="noreferrer" className="mx-3 mb-3 py-2.5 rounded-xl bg-emerald-600/15 hover:bg-emerald-600/25 border border-emerald-600/30 text-emerald-400 text-xs font-bold text-center transition-all">
             {t.whatsapp}
@@ -143,7 +150,7 @@ export default function CMAssistant({ lang }) {
       )}
 
       <button
-        onClick={() => { setOpen((o) => !o); setSeen(true); if (!open) track('chat_open'); }}
+        onClick={() => { setOpen((o) => !o); setSeen(true); if (!open) safeTrack('chat_open'); }}
         aria-label={open ? t.close : t.open}
         className="fixed bottom-5 right-4 md:right-6 z-[90] w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/40 flex items-center justify-center transition-all hover:scale-105"
       >
