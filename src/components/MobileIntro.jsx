@@ -31,7 +31,7 @@ export default function MobileIntro() {
     >
       <Logo className="intro-logo w-20 h-20 drop-shadow-2xl" />
       <div className="intro-text text-center">
-        <p className="font-black tracking-[0.35em] text-white text-lg pl-2">CM DEV STUDIO</p>
+        <p className="font-black tracking-[0.35em] text-white text-lg pl-2">THARON</p>
         <p className="text-[11px] tracking-[0.2em] text-blue-400 mt-2 uppercase">Desarrollo web elite</p>
       </div>
       <div className="w-40 h-1 rounded-full bg-slate-800 overflow-hidden">

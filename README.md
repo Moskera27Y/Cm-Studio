@@ -1,6 +1,6 @@
-# CM Dev Studio — Portafolio
+# THARON — Portafolio
 
-Portafolio bilingüe (ES/EN) de **CM Dev Studio**, estudio de desarrollo web elite y aplicaciones SaaS. Construido con React + Vite + Tailwind CSS v4, desplegado en Vercel.
+Portafolio bilingüe (ES/EN) de **THARON**, estudio de desarrollo web elite y aplicaciones SaaS. Construido con React + Vite + Tailwind CSS v4, desplegado en Vercel.
 
 ## Secciones
 
@@ -12,7 +12,7 @@ Portafolio bilingüe (ES/EN) de **CM Dev Studio**, estudio de desarrollo web eli
 - Precios transparentes en USD
 - Cotizador interactivo → WhatsApp
 - FAQ, formulario → WhatsApp (+57 302 747 2998), footer
-- Chatbot flotante **CM Assistant** (`POST /api/chat`, OpenAI-compatible; fallback local sin key)
+- Chatbot flotante **THARON Assistant** (`POST /api/chat`, OpenAI-compatible; fallback local sin key)
 
 ## Desarrollo
 

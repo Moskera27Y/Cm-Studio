@@ -126,7 +126,7 @@ export default function CMAssistant({ lang }) {
                     controls
                     playsInline
                     preload="none"
-                    aria-label={lang === 'es' ? 'Video promocional de CM Dev Studio' : 'CM Dev Studio promo video'}
+                    aria-label={lang === 'es' ? 'Video promocional de THARON' : 'THARON promo video'}
                     className="mt-2 w-full rounded-xl bg-black"
                   />
                 )}

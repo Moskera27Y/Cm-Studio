@@ -1,13 +1,13 @@
 // Textos legales ES/EN. Colombia: Ley 1581/2012 (habeas data), Decreto 1377/2013,
 // Ley 1480/2011 (consumidor), Ley 527/1999 (comercio electrónico). SIC como autoridad.
-// Negocio: CM Dev Studio (Cristian Mosquera), Colombia, trabajo remoto global,
+// Negocio: THARON (Cristian Mosquera), Colombia, trabajo remoto global,
 // contacto oficial por WhatsApp +57 302 747 2998. Precios en USD + impuestos aplicables.
 export const UPDATED = { es: 'Última actualización: septiembre de 2026', en: 'Last updated: September 2026' };
 
 export const LEGAL = {
   es: {
     business: {
-      name: 'CM Dev Studio (Cristian Mosquera)',
+      name: 'THARON (Cristian Mosquera)',
       location: 'Colombia · trabajo remoto global',
       contact: 'WhatsApp +57 302 747 2998 (canal oficial)',
       tax: 'Persona natural; los datos fiscales se detallan en la factura/cuenta de cobro.',
@@ -15,8 +15,8 @@ export const LEGAL = {
     privacy: {
       title: 'Política de Privacidad',
       body: [
-        'Responsable: CM Dev Studio (Cristian Mosquera), Colombia. Canal oficial: WhatsApp +57 302 747 2998. Esta web es un portafolio y cotizador; no crea cuentas ni vende en línea aquí.',
-        'Datos que recolectamos (solo los necesarios): (a) formulario de contacto que TÚ envías por WhatsApp: nombre, correo, tipo de proyecto, presupuesto y detalles que escribas; (b) cotizador: tipo de proyecto y extras (sin datos personales, se guarda solo el estimado en nuestra base para seguimiento); (c) chat CM Assistant: los mensajes que escribas (máx. 500 caracteres por mensaje, últimos 8 para contexto). No pedimos contraseñas, documentos ni datos sensibles: no los envíes.',
+        'Responsable: THARON (Cristian Mosquera), Colombia. Canal oficial: WhatsApp +57 302 747 2998. Esta web es un portafolio y cotizador; no crea cuentas ni vende en línea aquí.',
+        'Datos que recolectamos (solo los necesarios): (a) formulario de contacto que TÚ envías por WhatsApp: nombre, correo, tipo de proyecto, presupuesto y detalles que escribas; (b) cotizador: tipo de proyecto y extras (sin datos personales, se guarda solo el estimado en nuestra base para seguimiento); (c) chat THARON Assistant: los mensajes que escribas (máx. 500 caracteres por mensaje, últimos 8 para contexto). No pedimos contraseñas, documentos ni datos sensibles: no los envíes.',
         'Finalidades: responder y agendar por WhatsApp, preparar tu cotización, mejorar la web y atender garantías. Base jurídica: tu consentimiento libre e informado (casilla obligatoria antes de enviar).',
         'Encargados y transferencias: WhatsApp/Meta (cuando eliges enviar por WhatsApp, tus datos viajan a Meta según sus políticas); Vercel (hosting y analítica, solo si aceptas cookies); Neon/Postgres (estimados del cotizador); OpenRouter/IA (mensajes del chat para generar la respuesta). No vendemos tus datos.',
         'Tus derechos (Ley 1581/2012): conocer, actualizar, rectificar, suprimir y revocar tu autorización. Escríbenos por WhatsApp desde el número/correo que usaste y respondemos en máximo 15 días hábiles. Reclamos ante la SIC (www.sic.gov.co).',
@@ -57,7 +57,7 @@ export const LEGAL = {
   },
   en: {
     business: {
-      name: 'CM Dev Studio (Cristian Mosquera)',
+      name: 'THARON (Cristian Mosquera)',
       location: 'Colombia · remote worldwide',
       contact: 'WhatsApp +57 302 747 2998 (official channel)',
       tax: 'Sole proprietor; tax details appear on the invoice.',
@@ -65,8 +65,8 @@ export const LEGAL = {
     privacy: {
       title: 'Privacy Policy',
       body: [
-        'Controller: CM Dev Studio (Cristian Mosquera), Colombia. Official channel: WhatsApp +57 302 747 2998. This site is a portfolio and estimator; it creates no accounts and sells nothing here.',
-        'Data we collect (minimum only): (a) contact form YOU send via WhatsApp: name, email, project type, budget and details you type; (b) estimator: project type and extras (no personal data; only the estimate is stored for follow-up); (c) CM Assistant chat: messages you type (max 500 chars each, last 8 for context). We never ask for passwords, IDs or sensitive data — please do not send them.',
+        'Controller: THARON (Cristian Mosquera), Colombia. Official channel: WhatsApp +57 302 747 2998. This site is a portfolio and estimator; it creates no accounts and sells nothing here.',
+        'Data we collect (minimum only): (a) contact form YOU send via WhatsApp: name, email, project type, budget and details you type; (b) estimator: project type and extras (no personal data; only the estimate is stored for follow-up); (c) THARON Assistant chat: messages you type (max 500 chars each, last 8 for context). We never ask for passwords, IDs or sensitive data — please do not send them.',
         'Purposes: reply and schedule via WhatsApp, prepare your quote, improve the site and handle warranty. Legal basis: your free, informed consent (mandatory checkbox before sending).',
         'Processors/transfers: WhatsApp/Meta (when you choose WhatsApp, your data goes to Meta under its policies); Vercel (hosting and analytics, only with cookie consent); Neon/Postgres (estimator figures); OpenRouter/AI (chat messages to generate the answer). We do not sell your data.',
         'Your rights (Law 1581/2012): access, update, correct, delete and revoke consent. Message us on WhatsApp from the number/email you used; we reply within 15 business days. Complaints: SIC (www.sic.gov.co).',

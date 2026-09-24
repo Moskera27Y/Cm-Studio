@@ -73,7 +73,7 @@ export const STRINGS = {
         'SaaS / Web App Custom',
       ],
       wa: {
-        greet: 'Hola CM Dev Studio! Me interesa agendar una reunión para mi proyecto.',
+        greet: 'Hola THARON! Me interesa agendar una reunión para mi proyecto.',
         name: 'Nombre',
         email: 'Email',
         type: 'Tipo de Proyecto',
@@ -82,12 +82,12 @@ export const STRINGS = {
       },
     },
     chat: {
-      title: 'CM Assistant',
+      title: 'THARON Assistant',
       online: 'En línea · responde al instante',
-      greet: 'Hola, soy CM Assistant, el asistente virtual de CM Dev Studio. ¿En qué te ayudo? Pregunta por servicios, precios o proyectos.',
+      greet: 'Hola, soy THARON Assistant, el asistente virtual de THARON. ¿En qué te ayudo? Pregunta por servicios, precios o proyectos.',
       placeholder: 'Escribe tu mensaje...',
       chips: ['Servicios', 'Precios', 'Proyectos', 'Ver video', 'Agendar llamada'],
-      open: 'Abrir chat con CM Assistant',
+      open: 'Abrir chat con THARON Assistant',
       close: 'Cerrar chat',
       whatsapp: 'Hablar por WhatsApp',
       videoReply: 'Claro, aquí tienes nuestro video de 22 segundos: qué hacemos, velocidad 99/100 y cómo agendar por WhatsApp. Tócalo para verlo.',
@@ -113,7 +113,7 @@ export const STRINGS = {
     },
     about: {
       title: 'Código con propósito, diseño con intención',
-      text: 'Somos CM Dev Studio: un estudio de desarrollo web que combina ingeniería seria con diseño que vende. Sin plantillas, sin atajos: cada proyecto se construye a medida, optimizado para velocidad, posicionamiento y conversión desde el primer día.',
+      text: 'Somos THARON: un estudio de desarrollo web que combina ingeniería seria con diseño que vende. Sin plantillas, sin atajos: cada proyecto se construye a medida, optimizado para velocidad, posicionamiento y conversión desde el primer día.',
       stats: [
         { value: '4+', label: 'Proyectos entregados' },
         { value: '99/100', label: 'Rendimiento objetivo' },
@@ -150,7 +150,7 @@ export const STRINGS = {
       pdfNote: 'Se descargará el PDF y se abrirá WhatsApp con el resumen. Adjunta el PDF en el chat.',
       pdfTitle: 'Cotización inicial',
       pdfValid: 'Cotización válida por 15 días. Precio final según alcance detallado en reunión.',
-      waGreet: 'Hola CM Dev Studio! Hice una cotización en su página:',
+      waGreet: 'Hola THARON! Hice una cotización en su página:',
     },
     faq: {
       title: 'Preguntas frecuentes',
@@ -180,7 +180,7 @@ export const STRINGS = {
       cookies: 'Cookies',
       refunds: 'Reembolsos',
       cookieSettings: 'Configurar cookies',
-      business: 'CM Dev Studio (Cristian Mosquera) · WhatsApp +57 302 747 2998',
+      business: 'THARON (Cristian Mosquera) · WhatsApp +57 302 747 2998',
       images: 'Logo e imágenes de portada: creación propia. Las vistas previas muestran proyectos reales.',
     },
     cookie: {
@@ -202,7 +202,7 @@ export const STRINGS = {
       badge: 'Demostración en vivo',
       title: 'Compruébalo tú mismo',
       sub: 'Sin tecnicismos: toca, cambia y compara. Esto es exactamente lo que recibe tu proyecto.',
-      speed: { title: 'Velocidad que vende', desc: 'Gran parte de tus visitas llega desde el celular. Si tu página tarda en cargar, esos clientes se van con la competencia.', avg: 'Sitio promedio', ours: 'Con CM Dev Studio', slowTime: '4.2s', fastTime: '0.4s', verdict: 'Demostración ilustrativa: tu resultado real depende del proyecto.' },
+      speed: { title: 'Velocidad que vende', desc: 'Gran parte de tus visitas llega desde el celular. Si tu página tarda en cargar, esos clientes se van con la competencia.', avg: 'Sitio promedio', ours: 'Con THARON', slowTime: '4.2s', fastTime: '0.4s', verdict: 'Demostración ilustrativa: tu resultado real depende del proyecto.' },
       responsive: { title: 'Perfecta en toda pantalla', desc: 'La misma página, tres tamaños. Elige un dispositivo y míralo con tus propios ojos.', note: 'Tus clientes te visitan desde celular, tableta y computador. Tu sitio debe verse impecable en todos.', mobile: 'Móvil', tablet: 'Tableta', desktop: 'Escritorio' },
       ease: { title: 'Detalles que se sienten premium', desc: 'Elige un estilo de movimiento y míralo en acción. Así responden nuestros botones y menús.', note: 'Pequeños detalles que hacen que tu negocio se vea profesional.', duration: 'Velocidad', play: 'Ver de nuevo', styles: ['Suave', 'Elegante', 'Directo'] },
       included: { title: 'Todo incluido en cada proyecto:', items: ['Carga rápida', 'Diseño adaptable', 'Conexión segura', 'Visible en Google'] },
@@ -219,7 +219,7 @@ export const STRINGS = {
     compare: {
       title: 'Por qué no una plantilla',
       sub: 'La comparación honesta antes de que la pidas.',
-      cols: ['CM Dev Studio', 'Plantilla DIY', 'Agencia tradicional'],
+      cols: ['THARON', 'Plantilla DIY', 'Agencia tradicional'],
       rows: [
         { f: 'Diseño 100% a medida', v: ['yes', 'no', 'yes'] },
         { f: 'Velocidad 95+/100', v: ['yes', 'no', 'yes'] },
@@ -354,7 +354,7 @@ export const STRINGS = {
         'SaaS / Custom Web App',
       ],
       wa: {
-        greet: 'Hi CM Dev Studio! I would like to book a meeting about my project.',
+        greet: 'Hi THARON! I would like to book a meeting about my project.',
         name: 'Name',
         email: 'Email',
         type: 'Project Type',
@@ -363,12 +363,12 @@ export const STRINGS = {
       },
     },
     chat: {
-      title: 'CM Assistant',
+      title: 'THARON Assistant',
       online: 'Online · replies instantly',
-      greet: "Hi, I'm CM Assistant, CM Dev Studio's virtual assistant. How can I help? Ask about services, pricing, or projects.",
+      greet: "Hi, I'm THARON Assistant, THARON's virtual assistant. How can I help? Ask about services, pricing, or projects.",
       placeholder: 'Type your message...',
       chips: ['Services', 'Pricing', 'Projects', 'Watch video', 'Book a call'],
-      open: 'Open chat with CM Assistant',
+      open: 'Open chat with THARON Assistant',
       close: 'Close chat',
       whatsapp: 'Chat on WhatsApp',
       videoReply: 'Of course — here is our 22-second video: what we do, 99/100 speed and how to book on WhatsApp. Tap to watch.',
@@ -394,7 +394,7 @@ export const STRINGS = {
     },
     about: {
       title: 'Code with purpose, design with intent',
-      text: 'We are CM Dev Studio: a web development studio blending serious engineering with design that sells. No templates, no shortcuts: every project is custom-built, optimized for speed, ranking, and conversion from day one.',
+      text: 'We are THARON: a web development studio blending serious engineering with design that sells. No templates, no shortcuts: every project is custom-built, optimized for speed, ranking, and conversion from day one.',
       stats: [
         { value: '4+', label: 'Projects delivered' },
         { value: '99/100', label: 'Performance goal' },
@@ -431,7 +431,7 @@ export const STRINGS = {
       pdfNote: 'The PDF will download and WhatsApp will open with the summary. Attach the PDF in the chat.',
       pdfTitle: 'Initial quote',
       pdfValid: 'Quote valid for 15 days. Final price depends on scope detailed on a call.',
-      waGreet: 'Hi CM Dev Studio! I made a quote on your page:',
+      waGreet: 'Hi THARON! I made a quote on your page:',
     },
     faq: {
       title: 'Frequently asked questions',
@@ -461,7 +461,7 @@ export const STRINGS = {
       cookies: 'Cookies',
       refunds: 'Refunds',
       cookieSettings: 'Cookie settings',
-      business: 'CM Dev Studio (Cristian Mosquera) · WhatsApp +57 302 747 2998',
+      business: 'THARON (Cristian Mosquera) · WhatsApp +57 302 747 2998',
       images: 'Logo and cover images: original work. Previews show real projects.',
     },
     cookie: {
@@ -483,7 +483,7 @@ export const STRINGS = {
       badge: 'Live demo',
       title: 'See for yourself',
       sub: 'No jargon: tap, switch, and compare. This is exactly what your project gets.',
-      speed: { title: 'Speed that sells', desc: 'Much of your traffic comes from phones. If your page takes too long, those customers go to a competitor.', avg: 'Average site', ours: 'With CM Dev Studio', slowTime: '4.2s', fastTime: '0.4s', verdict: 'Illustrative demo: your real result depends on the project.' },
+      speed: { title: 'Speed that sells', desc: 'Much of your traffic comes from phones. If your page takes too long, those customers go to a competitor.', avg: 'Average site', ours: 'With THARON', slowTime: '4.2s', fastTime: '0.4s', verdict: 'Illustrative demo: your real result depends on the project.' },
       responsive: { title: 'Flawless on every screen', desc: 'Same page, three sizes. Pick a device and see it with your own eyes.', note: 'Your customers visit from phone, tablet, and computer. Your site must look perfect on all of them.', mobile: 'Mobile', tablet: 'Tablet', desktop: 'Desktop' },
       ease: { title: 'Details that feel premium', desc: 'Pick a motion style and watch it in action. That is how our buttons and menus respond.', note: 'Small details that make your business look professional.', duration: 'Speed', play: 'Watch again', styles: ['Smooth', 'Elegant', 'Direct'] },
       included: { title: 'Included in every project:', items: ['Fast loading', 'Adaptive design', 'Secure connection', 'Visible on Google'] },
@@ -500,7 +500,7 @@ export const STRINGS = {
     compare: {
       title: 'Why not a template',
       sub: 'The honest comparison before you ask.',
-      cols: ['CM Dev Studio', 'DIY Template', 'Traditional agency'],
+      cols: ['THARON', 'DIY Template', 'Traditional agency'],
       rows: [
         { f: '100% custom design', v: ['yes', 'no', 'yes'] },
         { f: '95+/100 speed', v: ['yes', 'no', 'yes'] },
