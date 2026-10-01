@@ -365,6 +365,18 @@ body::after {
 }
 /* Filete editorial para tarjetas */
 .rule-top { border-top: 2px solid #1c1917; }
+/* Dateline: reemplaza los eyebrows píldora */
+.dateline {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: #9a3412;
+}
+.dateline::before, .dateline-left::after {
+  content: ""; height: 1px; width: 56px; background: #9a3412; display: inline-block;
+}
+.dateline-center::after {
+  content: ""; height: 1px; width: 56px; background: #9a3412; display: inline-block;
+}
 
 /* ---------- Cumplimiento: contraste + foco visible (Ley 1712/accesibilidad) ---------- */
 /* slate-500 (#64748b) no llega a 4.5:1 ni en oscuro ni en papel:

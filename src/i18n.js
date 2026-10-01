@@ -13,9 +13,9 @@ export const STRINGS = {
       badge: 'Desarrollo Web Elite & Aplicaciones SaaS',
       titleA: 'Transformamos tu visión en una',
       titleB: 'Experiencia Web de Alto Impacto',
-      sub: 'Desarrollamos páginas y aplicaciones web con arquitectura moderna, velocidad de carga instantánea y optimización enfocada en conversión de clientes.',
-      cta1: 'Iniciar Mi Proyecto',
-      cta2: 'Ver Resultados',
+      sub: 'Páginas y apps a medida. Carga 99/100, posicionamiento y pagos en línea. Esto es lo que entrego:',
+      cta1: 'Cotizar por WhatsApp',
+      cta2: 'Ver proyectos entregados',
     },
     marquee: {
       label: 'Stack que dominamos',
@@ -24,10 +24,10 @@ export const STRINGS = {
       title: 'Nuestra Metodología de Trabajo',
       sub: 'Paso a paso estructurado para buscar resultados de alta calidad.',
       steps: [
-        { num: '01', title: 'Descubrimiento', desc: 'Analizamos tus objetivos de negocio, competidores y audiencia para definir la mejor estrategia.' },
-        { num: '02', title: 'Arquitectura & UX', desc: 'Diseñamos la estructura interactiva y la experiencia visual con enfoque en conversión.' },
-        { num: '03', title: 'Desarrollo Pro', desc: 'Codificamos con tecnologías modernas (React, Next.js, PostgreSQL) sin plantillas lentas.' },
-        { num: '04', title: 'Despliegue & Escalado', desc: 'Pruebas de rendimiento 99/100, configuración de dominio, SEO e infraestructura cloud.' },
+        { num: '01', title: 'Descubrimiento', desc: 'Llamada de 30 min + auditoría de lo que tienes. Sales con alcance y precio cerrado.', meta: 'Día 1–2 · Entregable: propuesta firmada' },
+        { num: '02', title: 'Arquitectura & UX', desc: 'Mapa del sitio y textos base orientados a vender, aprobados por ti antes de codificar.', meta: 'Día 3–5 · Entregable: prototipo navegable' },
+        { num: '03', title: 'Desarrollo Pro', desc: 'Código a medida (React, Next.js, PostgreSQL). Ves el avance en una URL privada.', meta: 'Semanas 1–4 · Entregable: sitio en staging' },
+        { num: '04', title: 'Despliegue & Escalado', desc: 'Medimos 99/100, conectamos dominio y pagos, y te entrego claves y videos de uso.', meta: 'Cierre · Entregable: sitio en producción' },
       ],
     },
     services: {
@@ -84,7 +84,7 @@ export const STRINGS = {
     chat: {
       title: 'THARON Assistant',
       online: 'En línea · responde al instante',
-      greet: 'Hola, soy THARON Assistant, el asistente virtual de THARON. ¿En qué te ayudo? Pregunta por servicios, precios o proyectos.',
+      greet: 'Hola, soy el asistente de Cristian en THARON. Respondo al instante: pregunta por servicios, precios o proyectos. Si quieres, pide el video.',
       placeholder: 'Escribe tu mensaje...',
       chips: ['Servicios', 'Precios', 'Proyectos', 'Ver video', 'Agendar llamada'],
       open: 'Abrir chat con THARON Assistant',
@@ -96,7 +96,7 @@ export const STRINGS = {
         services: 'Hacemos Landing Pages, Sitios Corporativos, E-Commerce y SaaS a medida con React y Next.js: SEO, velocidad 95+, pagos con Stripe/Wompi/PayPal y despliegue cloud.',
         projects: 'Casos destacados: Pintando Sueños (donaciones), AREM WORLD (e-commerce), Papelillo (pagos Wompi) y Matthew Journal (baby book). Explóralos en la sección Proyectos.',
         contact: 'Puedes agendar con el formulario o directo a WhatsApp. Si me dices qué necesitas, te preparo el resumen de tu proyecto.',
-        fallback: 'Puedo ayudarte con servicios, precios, proyectos o agendar una llamada. Si prefieres, escríbenos directo por WhatsApp.',
+        fallback: 'Te ayudo con servicios, precios, proyectos o agendar con Cristian. Escríbeme qué necesitas y te digo el siguiente paso. Si prefieres, háblanos directo por WhatsApp.',
       },
     },
     modal: {
@@ -113,7 +113,8 @@ export const STRINGS = {
     },
     about: {
       title: 'Código con propósito, diseño con intención',
-      text: 'Somos THARON: un estudio de desarrollo web que combina ingeniería seria con diseño que vende. Sin plantillas, sin atajos: cada proyecto se construye a medida, optimizado para velocidad, posicionamiento y conversión desde el primer día.',
+      text: 'Soy Cristian Mosquera, desarrollo en Cali desde 2024. Cada proyecto se construye a medida: sin plantillas, con velocidad, posicionamiento y conversión medidos desde el primer día.',
+      byline: 'Por Cristian Mosquera, Cali · Actualizado sep 2026',
       stats: [
         { value: '4+', label: 'Proyectos entregados' },
         { value: '99/100', label: 'Rendimiento objetivo' },
@@ -294,9 +295,9 @@ export const STRINGS = {
       badge: 'Elite Web Development & SaaS Applications',
       titleA: 'We turn your vision into a',
       titleB: 'High-Impact Web Experience',
-      sub: 'We build websites and web applications with modern architecture, instant load speed, and conversion-focused optimization.',
-      cta1: 'Start My Project',
-      cta2: 'See Results',
+      sub: 'Custom pages and apps. 99/100 load speed, rankings and online payments. What you get:',
+      cta1: 'Quote on WhatsApp',
+      cta2: 'See delivered projects',
     },
     marquee: {
       label: 'The stack we master',
@@ -305,10 +306,10 @@ export const STRINGS = {
       title: 'Our Work Methodology',
       sub: 'A structured step-by-step process that guarantees top-quality results.',
       steps: [
-        { num: '01', title: 'Discovery', desc: 'We analyze your business goals, competitors, and audience to define the best strategy.' },
-        { num: '02', title: 'Architecture & UX', desc: 'We design the interactive structure and visual experience with a conversion focus.' },
-        { num: '03', title: 'Pro Development', desc: 'We code with modern technologies (React, Next.js, PostgreSQL) — no slow templates.' },
-        { num: '04', title: 'Deploy & Scale', desc: '99/100 performance tests, domain setup, SEO, and cloud infrastructure.' },
+        { num: '01', title: 'Discovery', desc: '30-min call + audit of what you have. You leave with locked scope and price.', meta: 'Day 1–2 · Deliverable: signed proposal' },
+        { num: '02', title: 'Architecture & UX', desc: 'Sitemap and sales-oriented base copy, approved by you before any code.', meta: 'Day 3–5 · Deliverable: clickable prototype' },
+        { num: '03', title: 'Pro Development', desc: 'Custom code (React, Next.js, PostgreSQL). You watch progress on a private URL.', meta: 'Weeks 1–4 · Deliverable: staging site' },
+        { num: '04', title: 'Deploy & Scale', desc: 'We measure 99/100, connect domain and payments, hand over keys and how-to videos.', meta: 'Closing · Deliverable: production site' },
       ],
     },
     services: {
@@ -365,13 +366,13 @@ export const STRINGS = {
     chat: {
       title: 'THARON Assistant',
       online: 'Online · replies instantly',
-      greet: "Hi, I'm THARON Assistant, THARON's virtual assistant. How can I help? Ask about services, pricing, or projects.",
+      greet: "Hi, I'm Cristian's assistant at THARON. I reply instantly: ask about services, pricing or projects. You can also ask for the video.",
       placeholder: 'Type your message...',
       chips: ['Services', 'Pricing', 'Projects', 'Watch video', 'Book a call'],
       open: 'Open chat with THARON Assistant',
       close: 'Close chat',
       whatsapp: 'Chat on WhatsApp',
-      videoReply: 'Of course — here is our 22-second video: what we do, 99/100 speed and how to book on WhatsApp. Tap to watch.',
+      videoReply: 'Of course. Here is our 22-second video: what we do, 99/100 speed and how to book on WhatsApp. Tap to watch.',
       answers: {
         pricing: 'Projects are quoted in USD by scope: Landing from $300, Corporate from $600, E-Commerce from $1,200, SaaS from $2,500. Tell me your idea on WhatsApp for an exact quote.',
         services: 'We build custom Landing Pages, Corporate Sites, E-Commerce, and SaaS with React and Next.js: SEO, 95+ speed, Stripe/Wompi/PayPal payments, and cloud deployment.',
@@ -394,7 +395,8 @@ export const STRINGS = {
     },
     about: {
       title: 'Code with purpose, design with intent',
-      text: 'We are THARON: a web development studio blending serious engineering with design that sells. No templates, no shortcuts: every project is custom-built, optimized for speed, ranking, and conversion from day one.',
+      text: 'I am Cristian Mosquera, building in Cali since 2024. Every project is custom-built: no templates, with speed, rankings and conversion measured from day one.',
+      byline: 'By Cristian Mosquera, Cali · Updated Sep 2026',
       stats: [
         { value: '4+', label: 'Projects delivered' },
         { value: '99/100', label: 'Performance goal' },

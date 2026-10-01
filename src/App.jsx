@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Code2, Sparkles, Rocket, CheckCircle2, ArrowRight,
-  ShieldCheck, Zap, Globe, Check, MessageSquare, X,
-  Smartphone, Target, CreditCard, Menu, ChevronDown, Calculator, MonitorSmartphone
+  Code2, Sparkles, CheckCircle2, ArrowRight, Zap,
+  Globe, Check, MessageSquare, X,
+  Menu, ChevronDown, Calculator, MonitorSmartphone
 } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
 import MobileIntro from './components/MobileIntro';
@@ -12,16 +12,6 @@ import { STRINGS } from './i18n';
 import { safeTrack } from './analytics';
 import CookieBanner from './components/CookieBanner';
 import LegalDialog from './components/LegalDialog';
-
-const ICONS = {
-  globe: Globe,
-  zap: Zap,
-  smartphone: Smartphone,
-  target: Target,
-  shield: ShieldCheck,
-  card: CreditCard,
-  soon: Rocket,
-};
 
 const PROJECTS_BASE = [
   {
@@ -77,8 +67,6 @@ const PROJECTS_BASE = [
 ];
 
 const STACK = ['React', 'Next.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Prisma', 'Neon', 'Stripe', 'Wompi', 'PayPal', 'Vercel'];
-
-const GICONS = [CheckCircle2, ShieldCheck, Code2, MessageSquare];
 
 // Contador animado: 0 → número al entrar en viewport
 function Stat({ value }) {
@@ -140,16 +128,6 @@ const spotMove = (e) => {
   e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
   e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
 };
-
-// Tilt 3D sutil (solo puntero fino)
-const tiltMove = (e) => {
-  if (!window.matchMedia('(pointer: fine)').matches) return;
-  const r = e.currentTarget.getBoundingClientRect();
-  const rx = ((e.clientY - r.top) / r.height - 0.5) * -7;
-  const ry = ((e.clientX - r.left) / r.width - 0.5) * 7;
-  e.currentTarget.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-4px)`;
-};
-const tiltLeave = (e) => { e.currentTarget.style.transform = ''; };
 
 // Laboratorio: calidad comprobable en vivo
 function LabSection({ t }) {
@@ -515,7 +493,7 @@ export default function PortfolioApp() {
             <a href="#proyectos" className="hover:text-[#C2410C] transition-colors">{t.nav.projects}</a>
             <a href="#precios" className="hover:text-[#C2410C] transition-colors">{t.nav.pricing}</a>
             <a href="#faq" className="hover:text-[#C2410C] transition-colors">{t.nav.faq}</a>
-            <a href="#contacto" className="px-5 py-2.5 rounded-full bg-[#C2410C] hover:bg-[#9A3412] text-white font-semibold transition-all shadow-lg shadow-[#C2410C]/25">
+            <a href="#contacto" className="px-5 py-2.5 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] text-white font-semibold transition-all shadow-lg shadow-[#C2410C]/25">
               {t.nav.cta}
             </a>
           </nav>
@@ -575,32 +553,54 @@ export default function PortfolioApp() {
 
       {/* Main Content */}
       <main className="relative pt-32 pb-20 max-w-7xl mx-auto px-6 space-y-32">
-        {/* Hero Section */}
-        <section className="text-center space-y-8 max-w-4xl mx-auto">
-          <div className="hero-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C2410C]/10 border border-[#C2410C]/30 text-[#C2410C] text-sm font-medium" style={{ animationDelay: '0ms' }}>
-            <Sparkles className="w-4 h-4" /> {t.hero.badge}
+        {/* Hero Section: asimétrico editorial */}
+        <section className="grid gap-10 md:grid-cols-12 md:items-center">
+          <div className="space-y-7 md:col-span-7">
+            <p className="hero-in dateline dateline-left" style={{ animationDelay: '0ms' }}>
+              {lang === 'es' ? 'Cali — Colombia · 2026' : 'Cali — Colombia · 2026'}
+            </p>
+            <h1 className="hero-in text-5xl md:text-7xl font-black tracking-tight leading-[1.02]" style={{ animationDelay: '120ms' }}>
+              {t.hero.titleA} <span className="italic text-[#9A3412]">{t.hero.titleB}</span>
+            </h1>
+            <Typewriter
+              key={lang}
+              text={t.hero.sub}
+              className="hero-in text-lg md:text-xl text-[#57534E] leading-relaxed max-w-xl min-h-[84px] md:min-h-[72px]"
+            />
+            <div className="hero-in flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2" style={{ animationDelay: '360ms' }}>
+              <a href="#contacto" className="px-8 py-4 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] font-semibold text-white transition-all shadow-[5px_5px_0_#1C1917] flex items-center justify-center gap-2">
+                {t.hero.cta1} <ArrowRight className="w-5 h-5" />
+              </a>
+              <a href="#proyectos" className="px-8 py-4 rounded-lg bg-[#EFE7D6] border-2 border-[#1C1917] hover:bg-[#E7DCC3] font-semibold text-[#1C1917] transition-all flex items-center justify-center gap-2">
+                {t.hero.cta2}
+              </a>
+            </div>
           </div>
-          <h1 className="hero-in text-5xl md:text-7xl font-extrabold tracking-tight leading-tight" style={{ animationDelay: '120ms' }}>
-            {t.hero.titleA} <span className="gradient-text text-[#9A3412]">{t.hero.titleB}</span>
-          </h1>
-          <Typewriter
-            key={lang}
-            text={t.hero.sub}
-            className="hero-in text-lg md:text-xl text-[#57534E] leading-relaxed max-w-2xl mx-auto min-h-[84px] md:min-h-[72px]"
-          />
-          <div className="hero-in flex flex-col sm:flex-row items-center justify-center gap-4 pt-4" style={{ animationDelay: '360ms' }}>
-            <a href="#contacto" className="btn-shine w-full sm:w-auto px-8 py-4 rounded-xl bg-[#C2410C] hover:bg-[#9A3412] font-semibold text-white transition-all shadow-xl shadow-[#C2410C]/25 flex items-center justify-center gap-2">
-              {t.hero.cta1} <ArrowRight className="w-5 h-5" />
-            </a>
-            <a href="#proyectos" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#EFE7D6] border border-[#DCD2BE] hover:bg-[#E7DCC3] font-semibold text-[#44403C] transition-all flex items-center justify-center gap-2">
-              {t.hero.cta2}
-            </a>
-          </div>
+          <aside className="hero-in md:col-span-5" style={{ animationDelay: '240ms' }} aria-label={t.quote.title}>
+            <div className="rounded-none border-2 border-[#1C1917] bg-[#FFFDF8] shadow-[8px_8px_0_#1C1917]">
+              <div className="flex items-center justify-between border-b-2 border-[#1C1917] px-5 py-3">
+                <span className="text-xs font-bold uppercase tracking-[0.2em]">{t.quote.title}</span>
+                <Calculator className="w-4 h-4 text-[#9A3412]" />
+              </div>
+              <ul className="divide-y divide-[#E3DACA] text-sm">
+                {t.pricing.plans.map((plan, i) => (
+                  <li key={i} className="flex items-baseline justify-between gap-3 px-5 py-3">
+                    <span className="font-semibold">{plan.name}</span>
+                    <span className="flex-1 border-b border-dotted border-[#C9BCA1] -translate-y-1" aria-hidden="true" />
+                    <span className="font-black text-[#9A3412] whitespace-nowrap">{plan.price}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#cotizador" className="block border-t-2 border-[#1C1917] bg-[#1C1917] px-5 py-3.5 text-center text-sm font-bold text-[#F6F1E7] hover:bg-[#9A3412] transition-colors">
+                {t.pricing.cta} →
+              </a>
+            </div>
+          </aside>
         </section>
 
-        {/* Marquee de stack */}
-        <div className="overflow-hidden" aria-hidden="true">
-          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-slate-500 mb-5">{t.marquee.label}</p>
+        {/* Franja de especificaciones */}
+        <div className="overflow-hidden border-y-2 border-[#1C1917] py-4" aria-hidden="true">
+          <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-[#6F665A] mb-3">{t.marquee.label}</p>
           <div className="marquee">
             <div className="marquee-track">
               {[0, 1].map((copy) => (
@@ -622,6 +622,7 @@ export default function PortfolioApp() {
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">{t.about.title}</h2>
             <p className="text-[#57534E] leading-relaxed">{t.about.text}</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#9A3412]">{t.about.byline}</p>
           </div>
           <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {t.about.stats.map((s, i) => (
@@ -634,21 +635,26 @@ export default function PortfolioApp() {
           <p className="text-center text-[11px] text-slate-500">{t.disclaimers.metrics}</p>
         </section>
 
-        {/* Metodología */}
-        <section id="metodo" className="space-y-12">
-          <div className="text-center space-y-4">
+        {/* Metodología: línea de tiempo */}
+        <section id="metodo" className="grid gap-10 md:grid-cols-12">
+          <div className="md:col-span-4 space-y-4">
+            <p className="dateline dateline-left">{lang === 'es' ? 'Cómo trabajo' : 'How I work'}</p>
             <h2 className="text-3xl md:text-4xl font-bold">{t.method.title}</h2>
             <p className="text-[#57534E]">{t.method.sub}</p>
           </div>
-          <div className="grid md:grid-cols-4 gap-6">
+          <ol className="md:col-span-8 border-l-2 border-[#1C1917] ml-2 space-y-8">
             {t.method.steps.map((m, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#DCD2BE] hover:border-[#C2410C]/60 transition-all">
-                <span className="text-3xl font-black text-[#9A3412]/40">{m.num}</span>
-                <h3 className="text-xl font-bold mt-2 mb-2">{m.title}</h3>
-                <p className="text-sm text-[#57534E]">{m.desc}</p>
-              </div>
+              <li key={i} className="relative pl-8">
+                <span aria-hidden="true" className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full bg-[#F6F1E7] border-[3px] border-[#C2410C]" />
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                  <span className="font-black text-2xl text-[#9A3412]">{m.num}</span>
+                  <h3 className="text-xl font-bold">{m.title}</h3>
+                </div>
+                <p className="mt-1 text-sm text-[#57534E] max-w-xl">{m.desc}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-widest text-[#2F5D50]">{m.meta}</p>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
 
         {/* Servicios / Conceptos explicados */}
@@ -657,18 +663,16 @@ export default function PortfolioApp() {
             <h2 className="text-3xl md:text-4xl font-bold">{t.services.title}</h2>
             <p className="text-[#57534E]">{t.services.sub}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
             {t.services.items.map((s, i) => {
-              const Icon = ICONS[s.icon];
+              const n = String(i + 1).padStart(2, '0');
               return (
-                <div key={i} onMouseMove={spotMove} className="spot group p-6 rounded-2xl bg-[#FFFFFF] border border-[#DCD2BE] hover:border-[#C2410C]/60 hover:-translate-y-1 transition-all">
-                  <div className="flex items-center gap-3">
-                    <span className="p-2.5 rounded-xl bg-[#C2410C]/15 text-[#C2410C] group-hover:bg-[#C2410C] group-hover:text-[#1C1917] transition-all">
-                      <Icon className="w-5 h-5" />
-                    </span>
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500">{s.term}</span>
+                <div key={i} className="border-t-2 border-[#1C1917] pt-4">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <span className="font-black text-4xl text-[#9A3412]">{n}</span>
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#6F665A]">{s.term}</span>
                   </div>
-                  <h3 className="text-lg font-bold mt-4 mb-1.5">{s.title}</h3>
+                  <h3 className="text-lg font-bold mt-3 mb-1.5">{s.title}</h3>
                   <p className="text-sm text-[#57534E] leading-relaxed">{s.desc}</p>
                 </div>
               );
@@ -679,7 +683,7 @@ export default function PortfolioApp() {
         {/* Laboratorio */}
         <section id="lab" className="space-y-12">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
-            <span className="inline-block text-xs font-bold tracking-[0.2em] uppercase px-4 py-1.5 rounded-full bg-[#C2410C]/10 border border-[#C2410C]/40 text-[#9A3412]">{t.lab.badge}</span>
+            <p className="dateline dateline-center justify-center">{t.lab.badge}</p>
             <h2 className="text-3xl md:text-4xl font-bold">{t.lab.title}</h2>
             <p className="text-[#57534E] leading-relaxed">{t.lab.sub}</p>
           </div>
@@ -761,44 +765,48 @@ export default function PortfolioApp() {
           </div>
         </section>
 
-        {/* Precios */}
-        <section id="precios" className="space-y-12">
-          <div className="text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">{t.pricing.title}</h2>
-            <p className="text-[#57534E]">{t.pricing.sub}</p>
+        {/* Precios: tarifario */}
+        <section id="precios" className="space-y-8">
+          <div className="grid gap-6 md:grid-cols-12 md:items-end">
+            <div className="md:col-span-7 space-y-3">
+              <p className="dateline dateline-left">{lang === 'es' ? 'Tarifario 2026 · USD' : 'Rate card 2026 · USD'}</p>
+              <h2 className="text-3xl md:text-4xl font-bold">{t.pricing.title}</h2>
+              <p className="text-[#57534E]">{t.pricing.sub}</p>
+            </div>
+            <p className="md:col-span-5 text-sm text-[#57534E] md:text-right md:pb-1">{t.quote.pdfValid}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="border-t-2 border-[#1C1917]">
             {t.pricing.plans.map((plan, i) => (
-              <div
+              <article
                 key={i}
-                onMouseMove={(e) => { spotMove(e); tiltMove(e); }}
-                onMouseLeave={tiltLeave}
-                style={{ animationDelay: `${i * 100}ms` }}
-                className={`spot tilt card-in relative p-6 rounded-2xl border flex flex-col transition-all hover:shadow-2xl hover:shadow-black/10 ${i === 2 ? 'bg-gradient-to-b from-[#C2410C]/10 to-[#2F5D50]/10 border-[#C2410C]/60 shadow-xl shadow-[#C2410C]/10' : 'bg-[#FFFFFF] border-[#DCD2BE] hover:border-[#C2410C]/60'}`}>
-                {i === 2 && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] font-bold px-3 py-1 rounded-full bg-[#C2410C] text-white whitespace-nowrap">
-                    {t.pricing.popular}
-                  </span>
-                )}
-                <h3 className="text-lg font-bold">{plan.name}</h3>
-                <div className="text-2xl font-black mt-1 text-[#9A3412]">{plan.price} <span className="text-xs font-normal text-slate-500">USD</span></div>
-                <p className="text-sm text-[#57534E] mt-2">{plan.desc}</p>
-                <ul className="mt-4 space-y-2 flex-1">
+                className={`grid gap-3 md:grid-cols-12 md:items-center border-b border-[#DCD2BE] py-6 ${i === 2 ? 'bg-[#C2410C]/5' : ''}`}
+              >
+                <div className="md:col-span-4">
+                  <h3 className="text-xl font-bold">
+                    {i === 2 && <span className="mr-2 inline-block -translate-y-0.5 bg-[#1C1917] px-2 py-0.5 align-middle text-[10px] font-bold uppercase tracking-widest text-[#F6F1E7]">{t.pricing.popular}</span>}
+                    {plan.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-[#57534E]">{plan.desc}</p>
+                </div>
+                <ul className="md:col-span-5 grid gap-1.5 sm:grid-cols-2">
                   {plan.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2 text-sm text-[#44403C]">
                       <Check className="w-4 h-4 mt-0.5 text-[#047857] shrink-0" /> {f}
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`https://wa.me/573027472998?text=${encodeURIComponent(`${t.quote.waGreet} ${plan.name} (${plan.price} USD)`)}`}
-                  target="_blank" rel="noreferrer"
-                  onClick={() => safeTrack('plan_click', { plan: plan.name })}
-                  className="mt-6 w-full py-3 rounded-xl bg-[#E7DCC3] hover:bg-[#C2410C] border border-[#C9BCA1] font-semibold text-sm text-center transition-all"
-                >
-                  {t.pricing.cta}
-                </a>
-              </div>
+                <div className="md:col-span-3 md:text-right">
+                  <p className="text-2xl font-black text-[#9A3412]">{plan.price} <span className="text-xs font-normal text-[#6F665A]">USD</span></p>
+                  <a
+                    href={`https://wa.me/573027472998?text=${encodeURIComponent(`${t.quote.waGreet} ${plan.name} (${plan.price} USD)`)}`}
+                    target="_blank" rel="noreferrer"
+                    onClick={() => safeTrack('plan_click', { plan: plan.name })}
+                    className="mt-2 inline-block w-full md:w-auto px-5 py-2.5 rounded-lg bg-[#1C1917] hover:bg-[#C2410C] font-semibold text-sm text-[#F6F1E7] text-center transition-all"
+                  >
+                    {t.pricing.cta}
+                  </a>
+                </div>
+              </article>
             ))}
           </div>
         </section>
@@ -806,9 +814,7 @@ export default function PortfolioApp() {
         {/* Cotizador interactivo */}
         <section id="cotizador" className="max-w-3xl mx-auto p-8 rounded-3xl bg-[#FFFDF8] border border-[#DCD2BE] shadow-2xl space-y-6">
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2F5D50]/10 border border-[#2F5D50]/30 text-[#2F5D50] text-xs font-semibold">
-              <Calculator className="w-4 h-4" /> {t.quote.title}
-            </div>
+            <p className="dateline dateline-center justify-center"><Calculator className="w-4 h-4" /> {t.quote.title}</p>
             <p className="text-[#57534E] text-sm">{t.quote.sub}</p>
           </div>
           <div>
@@ -864,19 +870,14 @@ export default function PortfolioApp() {
           <div className="text-center space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">{t.guarantees.title}</h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {t.guarantees.items.map((g, i) => {
-              const Icon = GICONS[i % GICONS.length];
-              return (
-                <div key={i} onMouseMove={spotMove} className="spot p-6 rounded-2xl bg-[#FFFFFF] border border-[#DCD2BE] hover:border-emerald-500/50 transition-all">
-                  <span className="p-2.5 rounded-xl bg-emerald-600/15 text-[#047857] inline-block">
-                    <Icon className="w-5 h-5" />
-                  </span>
-                  <h3 className="text-base font-bold mt-4 mb-1.5">{g.title}</h3>
-                  <p className="text-sm text-[#57534E] leading-relaxed">{g.desc}</p>
-                </div>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
+            {t.guarantees.items.map((g, i) => (
+              <div key={i} className="border-t-2 border-[#1C1917] pt-4">
+                <span className="font-black text-3xl text-[#2F5D50]">✓</span>
+                <h3 className="text-base font-bold mt-2 mb-1.5">{g.title}</h3>
+                <p className="text-sm text-[#57534E] leading-relaxed">{g.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -1112,7 +1113,7 @@ export default function PortfolioApp() {
               </li>
             </ul>
             <p className="mt-4 text-[11px] text-[#A8A29E] leading-relaxed max-w-xs">{t.footer.images}</p>
-            <a href="#contacto" className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-semibold transition-all">
+            <a href="#contacto" className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-semibold transition-all">
               {t.nav.cta} <ArrowRight className="w-4 h-4" />
             </a>
           </div>
@@ -1120,6 +1121,7 @@ export default function PortfolioApp() {
         <div className="border-t border-[#4A4237]/60">
           <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#A8A29E]">
             <span>© {new Date().getFullYear()} THARON. {t.footer.rights}</span>
+            <span>{lang === 'es' ? 'Tipografía Fraunces + Inter · Hecho a mano en Cali' : 'Fraunces + Inter type · Handmade in Cali'}</span>
             <span className="inline-flex items-center gap-1.5"><Code2 className="w-3.5 h-3.5" /> React · Tailwind · Vercel</span>
           </div>
         </div>

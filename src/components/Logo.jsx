@@ -6,9 +6,9 @@ export default function Logo({ className = 'w-10 h-10' }) {
       <title>THARON</title>
       <defs>
         <linearGradient id="cm-logo-bg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#2563eb" />
-          <stop offset="0.55" stopColor="#4f46e5" />
-          <stop offset="1" stopColor="#7c3aed" />
+          <stop offset="0" stopColor="#C2410C" />
+          <stop offset="0.55" stopColor="#9A3412" />
+          <stop offset="1" stopColor="#1C1917" />
         </linearGradient>
         <linearGradient id="cm-logo-sheen" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffffff" stopOpacity="0.22" />
