@@ -62,7 +62,7 @@ export default function AnimatedBackground() {
           const d2 = dx * dx + dy * dy;
           if (d2 < 130 * 130) {
             const o = 1 - Math.sqrt(d2) / 130;
-            ctx.strokeStyle = `rgba(96,165,250,${(o * 0.28).toFixed(3)})`;
+            ctx.strokeStyle = `rgba(154,52,18,${(o * 0.30).toFixed(3)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -77,7 +77,7 @@ export default function AnimatedBackground() {
         const d2 = dx * dx + dy * dy;
         if (d2 < 200 * 200) {
           const o = 1 - Math.sqrt(d2) / 200;
-          ctx.strokeStyle = `rgba(167,139,250,${(o * 0.5).toFixed(3)})`;
+          ctx.strokeStyle = `rgba(47,93,80,${(o * 0.5).toFixed(3)})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
@@ -86,15 +86,15 @@ export default function AnimatedBackground() {
         }
       }
       for (const p of pts) {
-        ctx.fillStyle = 'rgba(147,197,253,0.8)';
+        ctx.fillStyle = 'rgba(120,100,70,0.85)';
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, 7);
         ctx.fill();
       }
       if (mouse.x > 0) {
         const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 120);
-        g.addColorStop(0, 'rgba(59,130,246,0.18)');
-        g.addColorStop(1, 'rgba(59,130,246,0)');
+        g.addColorStop(0, 'rgba(194,65,12,0.10)');
+        g.addColorStop(1, 'rgba(194,65,12,0)');
         ctx.fillStyle = g;
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 120, 0, 7);
@@ -142,14 +142,10 @@ export default function AnimatedBackground() {
 
   return (
     <div ref={wrapRef} className="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* Rejilla técnica */}
+      {/* Rejilla técnica en tinta */}
       <div className="bg-grid absolute inset-0" />
 
-      {/* Auroras suaves */}
-      <div className="blob blob-a" />
-      <div className="blob blob-b" />
-
-      {/* Red de partículas interactiva */}
+      {/* Red de partículas sepia (sin auroras: fondo papel) */}
       <canvas ref={canvasRef} className="absolute inset-0" />
     </div>
   );

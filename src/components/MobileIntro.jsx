@@ -27,15 +27,15 @@ export default function MobileIntro() {
   return (
     <div
       aria-hidden="true"
-      className={`fixed inset-0 z-[200] bg-[#07090e] flex flex-col items-center justify-center gap-5 px-8 ${leaving ? 'intro-out' : ''}`}
+      className={`fixed inset-0 z-[200] bg-[#F6F1E7] flex flex-col items-center justify-center gap-5 px-8 ${leaving ? 'intro-out' : ''}`}
     >
       <Logo className="intro-logo w-20 h-20 drop-shadow-2xl" />
       <div className="intro-text text-center">
-        <p className="font-black tracking-[0.35em] text-white text-lg pl-2">THARON</p>
-        <p className="text-[11px] tracking-[0.2em] text-blue-400 mt-2 uppercase">Desarrollo web elite</p>
+        <p className="font-black tracking-[0.35em] text-[#1C1917] text-lg pl-2">THARON</p>
+        <p className="text-[11px] tracking-[0.2em] text-[#9A3412] mt-2 uppercase">Desarrollo web elite</p>
       </div>
-      <div className="w-40 h-1 rounded-full bg-slate-800 overflow-hidden">
-        <div className="intro-bar h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+      <div className="w-40 h-1 rounded-full bg-[#DCD2BE] overflow-hidden">
+        <div className="intro-bar h-full rounded-full bg-gradient-to-r from-[#C2410C] to-[#2F5D50]" />
       </div>
     </div>
   );

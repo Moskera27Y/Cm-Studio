@@ -26,7 +26,7 @@ export default function CookieBanner({ lang, strings }) {
           {strings.reject}
         </button>
         <button onClick={() => { setConsent(true); setVisible(false); }}
-          className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold transition-all">
+          className="px-4 py-2.5 rounded-xl bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-semibold transition-all">
           {strings.accept}
         </button>
         <button onClick={() => { window.dispatchEvent(new CustomEvent('cm-open-legal', { detail: 'cookies' })); }}

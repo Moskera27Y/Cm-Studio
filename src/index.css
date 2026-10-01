@@ -6,7 +6,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #07090e;
+  background-color: #f6f1e7;
 }
 
 /* ---------- Fondo animado ---------- */
@@ -334,10 +334,42 @@ body {
   }
 }
 
+/* ---------- Tema editorial cálido: papel, tinta y grano ---------- */
+body {
+  background-color: #f6f1e7;
+  color: #1c1917;
+  font-family: Inter, system-ui, sans-serif;
+}
+h1, h2, .font-display {
+  font-family: Fraunces, Georgia, serif;
+  letter-spacing: -0.01em;
+}
+/* Grano de papel */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.30 0 0 0 0 0.25 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* Rejilla técnica en tinta (fondo editorial) */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(60, 50, 35, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 50, 35, 0.08) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 75% 62% at 50% 0%, black 25%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 62% at 50% 0%, black 25%, transparent 78%);
+}
+/* Filete editorial para tarjetas */
+.rule-top { border-top: 2px solid #1c1917; }
+
 /* ---------- Cumplimiento: contraste + foco visible (Ley 1712/accesibilidad) ---------- */
-/* slate-500 (#64748b) sobre fondo oscuro no llega a 4.5:1 en texto pequeño:
-   se aclara solo en ese contexto para cumplir WCAG AA sin cambiar el diseño. */
-.text-slate-500 { color: #9aa8bd; }
+/* slate-500 (#64748b) no llega a 4.5:1 ni en oscuro ni en papel:
+   se fija un gris cálido que cumple en papel (fondos claros). */
+.text-slate-500 { color: #6f665a; }
 .text-slate-400 { color: #aebdcc; }
 
 /* Foco siempre visible y operable con teclado */

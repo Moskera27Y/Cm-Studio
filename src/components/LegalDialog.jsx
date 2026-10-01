@@ -55,7 +55,7 @@ export default function LegalDialog({ lang }) {
         <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label={data.title}>
           {['privacy', 'terms', 'cookies', 'refunds'].map((k) => (
             <button key={k} onClick={() => setDoc(k)} aria-pressed={doc === k}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${doc === k ? 'bg-blue-600 text-white border-blue-600' : 'bg-slate-900 text-slate-300 border-slate-700 hover:border-blue-500'}`}>
+              className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${doc === k ? 'bg-[#C2410C] text-white border-[#C2410C]' : 'bg-[#2A241D] text-[#D6D3D1] border-[#4A4237] hover:border-[#C2410C]'}`}>
               {LEGAL[lang][k].title}
             </button>
           ))}
@@ -64,7 +64,7 @@ export default function LegalDialog({ lang }) {
           {data.body.map((p, i) => (
             <p key={i} className="text-sm text-slate-300 leading-relaxed">{p}</p>
           ))}
-          <p className="text-xs text-slate-500 leading-relaxed">{biz.tax}</p>
+          <p className="text-xs text-[#A8A29E] leading-relaxed">{biz.tax}</p>
         </div>
       </div>
     </div>
