@@ -163,10 +163,10 @@ export default function CMAssistant({ lang }) {
               <Send className="w-4 h-4" />
             </button>
           </form>
-          <p className="px-4 pb-1 text-[11px] text-slate-500 leading-relaxed">
+          <p className="px-4 pb-1 text-[11px] text-[#6F665A] leading-relaxed">
             {lang === 'es'
-              ? 'Al escribir aceptas nuestra Política de Privacidad. No compartas contraseñas ni datos sensibles.'
-              : 'By typing you accept our Privacy Policy. Do not share passwords or sensitive data.'}
+              ? 'Respuestas automáticas que pueden contener errores: verifica lo importante por WhatsApp. Al escribir aceptas nuestra Política de Privacidad. No compartas contraseñas ni datos sensibles.'
+              : 'Automated answers that may contain errors: verify important matters on WhatsApp. By typing you accept our Privacy Policy. Do not share passwords or sensitive data.'}
           </p>
 
           <a href={WA_LINK} target="_blank" rel="noreferrer" className="mx-3 mb-3 py-2.5 rounded-xl bg-[#2F5D50]/10 hover:bg-[#2F5D50]/20 border border-[#2F5D50]/30 text-[#1D4D3B] text-xs font-bold text-center transition-all">

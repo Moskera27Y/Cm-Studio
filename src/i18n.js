@@ -183,6 +183,8 @@ export const STRINGS = {
       cookieSettings: 'Configurar cookies',
       business: 'THARON (Cristian Mosquera) · WhatsApp +57 302 747 2998',
       images: 'Logo e imágenes de portada: creación propia. Las vistas previas muestran proyectos reales.',
+      sic: 'SIC · Protección al consumidor',
+      brands: 'Stripe, Wompi, PayPal, React, Next.js y demás marcas pertenecen a sus dueños; se nombran solo para describir compatibilidad.',
     },
     cookie: {
       title: 'Usamos cookies',
@@ -220,14 +222,15 @@ export const STRINGS = {
     compare: {
       title: 'Por qué no una plantilla',
       sub: 'La comparación honesta antes de que la pidas.',
+      note: 'Comparación ilustrativa según nuestro criterio y experiencia; cada caso varía. No constituye afirmación verificada sobre terceros.',
       cols: ['THARON', 'Plantilla DIY', 'Agencia tradicional'],
       rows: [
         { f: 'Diseño 100% a medida', v: ['yes', 'no', 'yes'] },
-        { f: 'Velocidad 95+/100', v: ['yes', 'no', 'yes'] },
-        { f: 'SEO técnico incluido', v: ['yes', 'no', 'yes'] },
+        { f: 'Velocidad 95+/100', v: ['yes', 'Depende', 'yes'] },
+        { f: 'SEO técnico incluido', v: ['yes', 'Básico', 'yes'] },
         { f: 'Tú eres dueño del código', v: ['yes', 'no', 'yes'] },
-        { f: 'Trato directo con el desarrollador', v: ['yes', 'no', 'no'] },
-        { f: 'Inversión', v: ['Desde $300 USD', 'Mensualidad para siempre', 'Desde $3,000 USD'] },
+        { f: 'Trato directo con el desarrollador', v: ['yes', 'no', 'A veces'] },
+        { f: 'Inversión', v: ['Desde $300 USD', 'Suscripción mensual', 'Suele superar $3,000 USD'] },
       ],
     },
     projectsData: {
@@ -465,6 +468,8 @@ export const STRINGS = {
       cookieSettings: 'Cookie settings',
       business: 'THARON (Cristian Mosquera) · WhatsApp +57 302 747 2998',
       images: 'Logo and cover images: original work. Previews show real projects.',
+      sic: 'SIC · Consumer protection',
+      brands: 'Stripe, Wompi, PayPal, React, Next.js and other marks belong to their owners; named only to describe compatibility.',
     },
     cookie: {
       title: 'We use cookies',
@@ -502,14 +507,15 @@ export const STRINGS = {
     compare: {
       title: 'Why not a template',
       sub: 'The honest comparison before you ask.',
+      note: 'Illustrative comparison based on our judgment and experience; each case varies. Not a verified claim about third parties.',
       cols: ['THARON', 'DIY Template', 'Traditional agency'],
       rows: [
         { f: '100% custom design', v: ['yes', 'no', 'yes'] },
-        { f: '95+/100 speed', v: ['yes', 'no', 'yes'] },
-        { f: 'Technical SEO included', v: ['yes', 'no', 'yes'] },
+        { f: '95+/100 speed', v: ['yes', 'It varies', 'yes'] },
+        { f: 'Technical SEO included', v: ['yes', 'Basic', 'yes'] },
         { f: 'You own the code', v: ['yes', 'no', 'yes'] },
-        { f: 'Direct contact with the developer', v: ['yes', 'no', 'no'] },
-        { f: 'Investment', v: ['From $300 USD', 'Subscription forever', 'From $3,000 USD'] },
+        { f: 'Direct contact with the developer', v: ['yes', 'no', 'Sometimes'] },
+        { f: 'Investment', v: ['From $300 USD', 'Monthly subscription', 'Often over $3,000 USD'] },
       ],
     },
     projectsData: {

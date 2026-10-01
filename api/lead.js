@@ -13,6 +13,19 @@ export default async function handler(req, res) {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ error: 'Method not allowed' });
   }
+  // Rate limit: 20 req/min por IP (evita spam y costo Neon).
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim()
+    || req.socket?.remoteAddress || 'unknown';
+  const now = Date.now();
+  if (!globalThis.__leadHits) globalThis.__leadHits = new Map();
+  const arr = (globalThis.__leadHits.get(ip) || []).filter((t) => now - t < 60_000);
+  arr.push(now);
+  globalThis.__leadHits.set(ip, arr);
+  if (globalThis.__leadHits.size > 2000) globalThis.__leadHits.delete(globalThis.__leadHits.keys().next().value);
+  if (arr.length > 20) {
+    res.setHeader('Retry-After', '60');
+    return res.status(429).json({ error: 'RATE_LIMITED' });
+  }
   const url = process.env.DATABASE_URL;
   if (!url) return res.status(503).json({ error: 'LEAD_STORE_NOT_CONFIGURED' });
   try {

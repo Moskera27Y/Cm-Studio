@@ -915,6 +915,7 @@ export default function PortfolioApp() {
               </tbody>
             </table>
           </div>
+          <p className="text-center text-[11px] text-[#6F665A]">{t.compare.note}</p>
         </section>
 
         {/* FAQ */}
@@ -1091,6 +1092,11 @@ export default function PortfolioApp() {
               </li>
               <li className="flex items-center gap-2"><Globe className="w-4 h-4" /> {t.footer.location}</li>
               <li className="text-xs text-[#A8A29E]">{t.footer.business}</li>
+              <li>
+                <a href="https://www.sic.gov.co" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 underline underline-offset-4 hover:text-[#E8A06C] transition-colors">
+                  {t.footer.sic}
+                </a>
+              </li>
             </ul>
             <h3 className="mt-6 text-xs font-bold uppercase tracking-widest text-[#A8A29E] mb-3">{t.footer.legal}</h3>
             <ul className="flex flex-wrap gap-2 text-xs">
@@ -1113,6 +1119,7 @@ export default function PortfolioApp() {
               </li>
             </ul>
             <p className="mt-4 text-[11px] text-[#A8A29E] leading-relaxed max-w-xs">{t.footer.images}</p>
+            <p className="mt-2 text-[11px] text-[#A8A29E] leading-relaxed max-w-xs">{t.footer.brands}</p>
             <a href="#contacto" className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-semibold transition-all">
               {t.nav.cta} <ArrowRight className="w-4 h-4" />
             </a>
