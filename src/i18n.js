@@ -11,8 +11,8 @@ export const STRINGS = {
     },
     hero: {
       badge: 'Desarrollo Web Elite & Aplicaciones SaaS',
-      titleA: 'Sitios web que venden,',
-      titleB: 'hechos en Cali para el mundo',
+      titleA: 'Diseño de páginas web que venden,',
+      titleB: 'desarrollo a medida en Cali, Colombia',
       sub: 'Páginas y apps a medida. Carga 99/100, posicionamiento y pagos en línea. Esto es lo que entrego:',
       cta1: 'Cotizar por WhatsApp',
       cta2: 'Ver proyectos entregados',
@@ -298,8 +298,8 @@ export const STRINGS = {
     },
     hero: {
       badge: 'Elite Web Development & SaaS Applications',
-      titleA: 'Websites that sell,',
-      titleB: 'built in Cali for the world',
+      titleA: 'Website design that sells,',
+      titleB: 'custom development in Cali, Colombia',
       sub: 'Custom pages and apps. 99/100 load speed, rankings and online payments. What you get:',
       cta1: 'Quote on WhatsApp',
       cta2: 'See delivered projects',
