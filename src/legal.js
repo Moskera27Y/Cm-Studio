@@ -28,6 +28,7 @@ export const LEGAL = {
       title: 'Términos y Condiciones',
       body: [
         'Servicios: diseño y desarrollo web a medida (landing, corporativo, e-commerce, SaaS/web app). Todo es estimado y se confirma por escrito (WhatsApp) antes de iniciar: alcance, precio final en USD, plazos y entregables.',
+        'Edad mínima: para contratar debes tener 18 años o más (o actuar con un adulto responsable). Nuestros servicios son para negocios, no están dirigidos a menores de 13 años.',
         'Precios y pagos: los valores publicados son rangos base en USD y NO incluyen impuestos, dominio ni pasarelas de terceros salvo que se indique. Forma habitual: 50% de anticipo para iniciar y 50% contra entrega. Medios: transferencia, Stripe, PayPal y Wompi. Sin anticipo no se agenda ni se inicia.',
         'Plazos estimados (no garantizados, dependen de tu feedback): landing 1–2 semanas, corporativo 2–4, e-commerce 4–6, SaaS por fases. Incluye 2 rondas de ajustes de diseño/textos; cambios de alcance se cotizan aparte.',
         'Propiedad: al pagar el 100%, te transferimos código, dominio (a tu nombre) y accesos. Podemos mostrar el proyecto en el portafolio salvo pacto escrito en contra. Textos base e imágenes de banco deben ser reemplazados por tu contenido final; tú garantizas tener derechos sobre el material que nos entregas.',
@@ -80,6 +81,7 @@ export const LEGAL = {
       title: 'Terms & Conditions',
       body: [
         'Services: custom web design and development (landing, corporate, e-commerce, SaaS/web app). Everything is an estimate confirmed in writing (WhatsApp) before start: scope, final USD price, timeline and deliverables.',
+        'Minimum age: you must be 18 or older to contract (or act with a responsible adult). Our services are for businesses and are not directed at children under 13.',
         'Pricing and payment: published values are base USD ranges EXCLUDING taxes, domains and third-party fees unless stated. Usual form: 50% deposit to start, 50% on delivery. Methods: bank transfer, Stripe, PayPal, Wompi. No deposit, no booking or start.',
         'Estimated timelines (not guaranteed, depend on your feedback): landing 1–2 weeks, corporate 2–4, e-commerce 4–6, SaaS in phases. Includes 2 design/copy revision rounds; scope changes are quoted separately.',
         'Ownership: after 100% payment we transfer code, domain (in your name) and access. We may show the project in the portfolio unless agreed otherwise in writing. Base copy and stock images must be replaced by your final content; you warrant rights over materials you provide.',

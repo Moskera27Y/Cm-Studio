@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {
   Code2, Sparkles, CheckCircle2, ArrowRight, Zap,
-  Globe, Check, MessageSquare, X,
+  Globe, Check, MessageSquare, Mail, X,
   Menu, ChevronDown, Calculator, MonitorSmartphone
 } from 'lucide-react';
 import AnimatedBackground from './components/AnimatedBackground';
@@ -861,6 +861,12 @@ export default function PortfolioApp() {
             >
               <MessageSquare className="w-5 h-5 shrink-0" /> <span>{t.quote.cta}</span>
             </button>
+            <a
+              href={`mailto:Moskera15@gmail.com?subject=${encodeURIComponent(`${t.quote.pdfTitle} - ${t.contact.types[qType]}`)}&body=${encodeURIComponent(`${t.quote.waGreet}\n\n${t.quote.type}: ${t.contact.types[qType]}\n${qExtras.map((i) => `+ ${t.quote.extrasList[i].label} ($${t.quote.extrasList[i].price} USD)`).join('\n')}\n${t.quote.estimated}: $${quoteTotal} - $${Math.round(quoteTotal * 1.3)} USD`)}`}
+              className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-[#1C1917] hover:bg-[#C2410C] font-bold text-[#F6F1E7] text-sm sm:text-base text-center leading-snug transition-all flex items-center justify-center gap-2"
+            >
+              <Mail className="w-5 h-5 shrink-0" /> <span>{t.quote.emailCta}</span>
+            </a>
           </div>
           <p className="text-[11px] text-slate-500 text-center">{t.quote.pdfNote}</p>
         </section>
@@ -1093,6 +1099,11 @@ export default function PortfolioApp() {
               <li className="flex items-center gap-2"><Globe className="w-4 h-4" /> {t.footer.location}</li>
               <li className="text-xs text-[#A8A29E]">{t.footer.business}</li>
               <li>
+                <a href="mailto:Moskera15@gmail.com" className="inline-flex items-center gap-2 hover:text-[#E8A06C] transition-colors">
+                  <Mail className="w-4 h-4" /> Moskera15@gmail.com
+                </a>
+              </li>
+              <li>
                 <a href="https://www.sic.gov.co" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 underline underline-offset-4 hover:text-[#E8A06C] transition-colors">
                   {t.footer.sic}
                 </a>
@@ -1255,6 +1266,9 @@ export default function PortfolioApp() {
                 </div>
               </div>
               <p className="text-[11px] text-slate-500 leading-relaxed">{t.disclaimers.metrics}</p>
+              {!selected.private && (
+                <p className="text-[11px] font-semibold text-[#2F5D50] leading-relaxed">{t.modal.auth}</p>
+              )}
 
               <div className="flex flex-wrap gap-2">
                 {selected.stack.map((tech, idx) => (

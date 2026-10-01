@@ -11,8 +11,8 @@ export const STRINGS = {
     },
     hero: {
       badge: 'Desarrollo Web Elite & Aplicaciones SaaS',
-      titleA: 'Transformamos tu visión en una',
-      titleB: 'Experiencia Web de Alto Impacto',
+      titleA: 'Sitios web que venden,',
+      titleB: 'hechos en Cali para el mundo',
       sub: 'Páginas y apps a medida. Carga 99/100, posicionamiento y pagos en línea. Esto es lo que entrego:',
       cta1: 'Cotizar por WhatsApp',
       cta2: 'Ver proyectos entregados',
@@ -110,6 +110,7 @@ export const STRINGS = {
       close: 'Cerrar',
       privateNote: 'Proyecto personal y privado. Los detalles completos se comparten en reunión.',
       previewOf: 'Vista previa de',
+      auth: 'Publicado con autorización del cliente.',
     },
     about: {
       title: 'Código con propósito, diseño con intención',
@@ -148,6 +149,7 @@ export const STRINGS = {
       estimated: 'Estimado',
       rangeNote: 'Rango según complejidad final.',
       cta: 'Generar PDF y enviar por WhatsApp',
+      emailCta: 'Enviar resumen por email',
       pdfNote: 'Se descargará el PDF y se abrirá WhatsApp con el resumen. Adjunta el PDF en el chat.',
       pdfTitle: 'Cotización inicial',
       pdfValid: 'Cotización válida por 15 días. Precio final según alcance detallado en reunión.',
@@ -296,8 +298,8 @@ export const STRINGS = {
     },
     hero: {
       badge: 'Elite Web Development & SaaS Applications',
-      titleA: 'We turn your vision into a',
-      titleB: 'High-Impact Web Experience',
+      titleA: 'Websites that sell,',
+      titleB: 'built in Cali for the world',
       sub: 'Custom pages and apps. 99/100 load speed, rankings and online payments. What you get:',
       cta1: 'Quote on WhatsApp',
       cta2: 'See delivered projects',
@@ -395,6 +397,7 @@ export const STRINGS = {
       close: 'Close',
       privateNote: 'Personal, private project. Full details are shared on a call.',
       previewOf: 'Preview of',
+      auth: 'Published with client authorization.',
     },
     about: {
       title: 'Code with purpose, design with intent',
@@ -433,6 +436,7 @@ export const STRINGS = {
       estimated: 'Estimate',
       rangeNote: 'Range depends on final complexity.',
       cta: 'Generate PDF and send via WhatsApp',
+      emailCta: 'Send summary by email',
       pdfNote: 'The PDF will download and WhatsApp will open with the summary. Attach the PDF in the chat.',
       pdfTitle: 'Initial quote',
       pdfValid: 'Quote valid for 15 days. Final price depends on scope detailed on a call.',
