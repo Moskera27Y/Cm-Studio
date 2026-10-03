@@ -601,34 +601,44 @@ export default function PortfolioApp() {
         {/* Franja de especificaciones */}
         <div className="overflow-hidden border-y-2 border-[#1C1917] py-4" aria-hidden="true">
           <p className="text-center text-[11px] font-bold uppercase tracking-[0.25em] text-[#6F665A] mb-3">{t.marquee.label}</p>
-          <div className="marquee">
-            <div className="marquee-track">
-              {[0, 1].map((copy) => (
-                <div key={copy} className="marquee-group">
-                  {STACK.map((s) => (
-                    <React.Fragment key={`${copy}-${s}`}>
-                      <span className="text-sm font-semibold uppercase tracking-widest text-slate-500 whitespace-nowrap">{s}</span>
-                      <span className="text-[#9A3412] text-xs" aria-hidden="true">•</span>
-                    </React.Fragment>
-                  ))}
-                </div>
-              ))}
-            </div>
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-6">
+            {STACK.map((s) => (
+              <React.Fragment key={s}>
+                <span className="text-sm font-semibold uppercase tracking-widest text-slate-500 whitespace-nowrap">{s}</span>
+                <span className="text-[#9A3412] text-xs" aria-hidden="true">•</span>
+              </React.Fragment>
+            ))}
           </div>
         </div>
 
         {/* Quiénes somos + stats */}
         <section id="filosofia" className="space-y-10">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold">{t.about.title}</h2>
-            <p className="text-[#57534E] leading-relaxed">{t.about.text}</p>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#9A3412]">{t.about.byline}</p>
+          <div className="grid gap-8 md:grid-cols-12 md:items-center max-w-5xl mx-auto">
+            <figure className="md:col-span-4">
+              <img
+                src="/cristian-mosquera.jpg"
+                alt="Cristian Mosquera, desarrollador web en Cali, fundador de THARON"
+                width="861"
+                height="1065"
+                loading="lazy"
+                className="w-full max-w-[320px] mx-auto rounded-none border-2 border-[#1C1917] shadow-[8px_8px_0_#1C1917]"
+              />
+              <figcaption className="mt-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-[#9A3412]">
+                Cristian Mosquera · Cali
+              </figcaption>
+            </figure>
+            <div className="md:col-span-8 space-y-4 text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold">{t.about.title}</h2>
+              <p className="text-[#57534E] leading-relaxed">{t.about.text}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#9A3412]">{t.about.byline}</p>
+            </div>
           </div>
           <dl className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {t.about.stats.map((s, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#DCD2BE] text-center hover:border-[#C2410C]/60 transition-all">
+              <div key={i} className="pt-4 border-t-2 border-[#1C1917] text-center hover:border-[#C2410C] transition-all">
                 <dt className="order-2 text-xs text-[#57534E] mt-1">{s.label}</dt>
                 <dd className="order-1 text-3xl font-black text-[#9A3412]"><Stat key={`${lang}-${s.label}`} value={s.value} /></dd>
+                <dd className="order-3 text-[11px] text-[#6F665A] mt-1">{s.m}</dd>
               </div>
             ))}
           </dl>
@@ -885,6 +895,7 @@ export default function PortfolioApp() {
               </div>
             ))}
           </div>
+          <p className="text-center text-sm font-bold text-[#1C1917]">— Cristian Mosquera</p>
         </section>
 
         {/* Comparativa */}
@@ -893,7 +904,7 @@ export default function PortfolioApp() {
             <h2 className="text-3xl md:text-4xl font-bold">{t.compare.title}</h2>
             <p className="text-[#57534E]">{t.compare.sub}</p>
           </div>
-          <div className="overflow-x-auto rounded-2xl border border-[#DCD2BE]">
+          <div className="overflow-x-auto rounded-none border-y-2 border-[#1C1917]">
             <table className="w-full text-sm min-w-[600px] bg-[#FFFFFF]">
               <thead>
                 <tr className="border-b border-[#DCD2BE]">
@@ -932,7 +943,7 @@ export default function PortfolioApp() {
           </div>
           <div className="space-y-3">
             {t.faq.items.map((item, i) => (
-              <div key={i} className={`rounded-2xl border transition-all ${openFaq === i ? 'bg-[#EFE7D6] border-[#C2410C]/60' : 'bg-[#FFFFFF] border-[#DCD2BE]'}`}>
+              <div key={i} className={`rounded-md border transition-all ${openFaq === i ? 'bg-[#EFE7D6] border-[#C2410C]/60' : 'bg-[#FFFFFF] border-[#DCD2BE]'}`}>
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   aria-expanded={openFaq === i}
@@ -1158,7 +1169,7 @@ export default function PortfolioApp() {
         >
           <div
             role="dialog" aria-modal="true" aria-label={selected.title}
-            className="modal-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#FFFDF8] border border-[#DCD2BE] shadow-2xl"
+            className="modal-panel w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl bg-[#FFFDF8] border-2 border-[#1C1917] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Vista previa del sitio */}
