@@ -5,10 +5,12 @@ import Logo from './Logo';
 import { STRINGS } from '../i18n';
 
 const WA_LINK = 'https://wa.me/573027472998';
-// Video mobile (22s, vertical con voz): solo se sirve bajo demanda desde el chat,
-// nunca se incrusta en la página para no pesar la carga inicial.
-const VIDEO_SRC = '/video-cm-mobile.mp4';
-const VIDEO_POSTER = '/video-cm-mobile.jpg';
+// Videos verticales THARON (21s, con voz): uno por idioma, solo bajo demanda
+// desde el chat, nunca incrustados en la página para no pesar la carga inicial.
+const VIDEO = {
+  es: { src: '/video-tharon-es.mp4', poster: '/video-tharon-es.jpg' },
+  en: { src: '/video-tharon-en.mp4', poster: '/video-tharon-en.jpg' },
+};
 
 function detectIntent(text) {
   const s = text.toLowerCase();
@@ -43,7 +45,8 @@ export default function CMAssistant({ lang }) {
     setTyping(true);
     timer.current = setTimeout(() => {
       if (intent === 'video') {
-        setMessages((m) => [...m, { from: 'bot', text: t.videoReply, video: VIDEO_SRC, poster: VIDEO_POSTER }]);
+        const v = VIDEO[lang] || VIDEO.es;
+        setMessages((m) => [...m, { from: 'bot', text: t.videoReply, video: v.src, poster: v.poster }]);
       } else {
         setMessages((m) => [...m, { from: 'bot', text: intent === 'greet' ? t.greet : t.answers[intent] }]);
       }

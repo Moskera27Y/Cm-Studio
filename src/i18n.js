@@ -90,7 +90,7 @@ export const STRINGS = {
       open: 'Abrir chat con THARON Assistant',
       close: 'Cerrar chat',
       whatsapp: 'Hablar por WhatsApp',
-      videoReply: 'Claro, aquí tienes nuestro video de 22 segundos: qué hacemos, velocidad 99/100 y cómo agendar por WhatsApp. Tócalo para verlo.',
+      videoReply: 'Claro, aquí tienes nuestro video de 21 segundos: qué hacemos, velocidad 99/100 y cómo agendar por WhatsApp. Tócalo para verlo.',
       answers: {
         pricing: 'Te doy números reales, no “desde” inventados: Landing $300, Corporativo $600, E-Commerce $1.200, SaaS $2.500 USD. Escríbeme tu idea y hoy mismo te digo la cifra exacta.',
         services: 'Hago Landing Pages, Corporativos, E-Commerce y SaaS a medida con React y Next.js. Lo que entrego siempre: velocidad 95+, SEO técnico y pagos con Stripe, Wompi o PayPal.',
@@ -377,7 +377,7 @@ export const STRINGS = {
       open: 'Open chat with THARON Assistant',
       close: 'Close chat',
       whatsapp: 'Chat on WhatsApp',
-      videoReply: 'Of course. Here is our 22-second video: what we do, 99/100 speed and how to book on WhatsApp. Tap to watch.',
+      videoReply: 'Of course. Here is our 21-second video: what we do, 99/100 speed and how to book on WhatsApp. Tap to watch.',
       answers: {
         pricing: 'Real numbers, no made-up “from” prices: Landing $300, Corporate $600, E-Commerce $1,200, SaaS $2,500 USD. Tell me your idea and I will give you the exact figure today.',
         services: 'I build custom Landing Pages, Corporate Sites, E-Commerce and SaaS with React and Next.js. What you always get: 95+ speed, technical SEO and Stripe, Wompi or PayPal payments.',
